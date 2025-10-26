@@ -62,19 +62,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Back to Blog */}
-      <div className="container mx-auto px-6 pt-8">
-        <div className="max-w-4xl mx-auto">
-          <Link 
-            href="/blog"
-            className="inline-flex items-center gap-2 text-navy-600 hover:text-navy-900 font-medium transition-colors duration-300"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Blog
-          </Link>
-        </div>
+      {/* Back to Blog - positioned absolutely in left corner */}
+      <div className="absolute top-6 left-6">
+        <Link 
+          href="/blog"
+          className="inline-flex items-center gap-2 text-navy-600 hover:text-navy-900 font-medium transition-colors duration-300"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Blog
+        </Link>
       </div>
 
       {/* Article Header */}

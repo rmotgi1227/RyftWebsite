@@ -184,6 +184,12 @@ export default function SimpleWaitlist() {
               >
                 Schedule a Meeting
               </a>
+              <a
+                href="/blog"
+                className="bg-accent-50 hover:bg-accent-100 text-accent-700 border-2 border-accent-200 hover:border-accent-300 px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-40 text-center"
+              >
+                Read Blog
+              </a>
             </div>
           </form>
         </motion.div>

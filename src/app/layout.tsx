@@ -8,18 +8,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RYFT - Commission Management Reimagined",
+  title: "RYFT",
   description: "Enterprise-grade commission tracking with zero setup complexity. Deploy in minutes, not months.",
   keywords: "commission management, sales operations, enterprise software, zero setup, commission tracking",
   authors: [{ name: "RYFT" }],
   openGraph: {
-    title: "RYFT - Commission Management Reimagined",
+    title: "RYFT",
     description: "Enterprise-grade commission tracking with zero setup complexity. Deploy in minutes, not months.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "RYFT - Commission Management Reimagined",
+    title: "RYFT",
     description: "Enterprise-grade commission tracking with zero setup complexity. Deploy in minutes, not months.",
   },
 };

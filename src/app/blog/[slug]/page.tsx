@@ -62,8 +62,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Back to Blog */}
+      <div className="container mx-auto px-6 pt-8">
+        <div className="max-w-4xl mx-auto">
+          <Link 
+            href="/blog"
+            className="inline-flex items-center gap-2 text-navy-600 hover:text-navy-900 font-medium transition-colors duration-300"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+
       {/* Article Header */}
-      <article className="container mx-auto px-6 py-12 pt-32">
+      <article className="container mx-auto px-6 py-12 pt-8">
         <div className="max-w-4xl mx-auto">
 
           {/* Title */}
@@ -138,7 +153,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 />
                 <div>
                   <p className="text-navy-600 leading-relaxed">
-                    <strong>Rishab Motgi</strong> is the founder and CEO of Ryft. He started building Ryft after seeing how much time companies waste trying to make sense of commissions and broken incentive systems. His goal is simple — remove setup from software completely. Rishab's obsessed with building products that actually save people time and believes automation should feel like magic, not work.
+                    <strong>Rishab Motgi</strong> is the founder and CEO of Ryft. He started building Ryft after seeing how much time companies waste trying to make sense of commissions and broken incentive systems. His goal is simple — remove setup from software completely.
                   </p>
                 </div>
               </div>

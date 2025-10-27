@@ -89,7 +89,7 @@ export default function SimpleWaitlist() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4 py-8 overflow-hidden relative">
+    <div className="h-screen flex items-center justify-center bg-white px-4 py-8 overflow-hidden relative">
       {/* Subtle dot pattern background */}
       <div className="absolute inset-0 opacity-15">
         <div className="absolute inset-0" style={{
@@ -98,7 +98,7 @@ export default function SimpleWaitlist() {
         }}></div>
       </div>
       
-      <div className="max-w-2xl w-full relative z-10">
+      <div className="max-w-4xl w-full relative z-10">
         <motion.div 
           className="text-center mb-6 sm:mb-8"
           initial={{ opacity: 0, y: 30 }}
@@ -112,7 +112,7 @@ export default function SimpleWaitlist() {
               alt="RYFT Logo"
               width={2400}
               height={800}
-              className="h-32 sm:h-40 md:h-56 lg:h-64 xl:h-72 w-auto max-w-full"
+              className="h-32 sm:h-40 md:h-48 lg:h-52 xl:h-56 w-auto max-w-full"
               priority
             />
           </div>
@@ -161,11 +161,11 @@ export default function SimpleWaitlist() {
               )}
             </div>
 
-            <div className="flex flex-col gap-3 justify-center items-stretch sm:items-center">
+            <div className="flex flex-col lg:flex-row gap-3 justify-center items-stretch lg:items-center">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto bg-navy-900 hover:bg-navy-800 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl sm:min-w-48"
+                className="w-full lg:w-auto bg-navy-900 hover:bg-navy-800 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl lg:min-w-48"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center gap-2">
@@ -177,22 +177,20 @@ export default function SimpleWaitlist() {
                 )}
               </button>
               
-              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto bg-white hover:bg-navy-50 text-navy-900 border-2 border-navy-900 hover:border-navy-800 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center sm:min-w-48"
-                >
-                  Schedule a Meeting
-                </a>
-                <a
-                  href="/blog"
-                  className="w-full sm:w-auto bg-accent-50 hover:bg-accent-100 text-accent-700 border-2 border-accent-200 hover:border-accent-300 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center sm:min-w-48"
-                >
-                  Blog
-                </a>
-              </div>
+              <a
+                href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full lg:w-auto bg-white hover:bg-navy-50 text-navy-900 border-2 border-navy-900 hover:border-navy-800 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center lg:min-w-48"
+              >
+                Schedule a Meeting
+              </a>
+              <a
+                href="/blog"
+                className="w-full lg:w-auto bg-accent-50 hover:bg-accent-100 text-accent-700 border-2 border-accent-200 hover:border-accent-300 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center lg:min-w-48"
+              >
+                Blog
+              </a>
             </div>
           </form>
         </motion.div>

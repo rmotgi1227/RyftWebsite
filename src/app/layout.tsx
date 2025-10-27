@@ -14,9 +14,14 @@ export const metadata: Metadata = {
   authors: [{ name: "RYFT" }],
   icons: {
     icon: [
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon.png', type: 'image/png', sizes: '16x16' },
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.png', type: 'image/png' },
     ],
+    apple: [
+      { url: '/favicon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
   },
   openGraph: {
     title: "RYFT",

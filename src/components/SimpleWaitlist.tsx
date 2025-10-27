@@ -89,7 +89,7 @@ export default function SimpleWaitlist() {
   }
 
   return (
-    <div className="h-screen flex items-center justify-center bg-white p-4 overflow-hidden relative">
+    <div className="min-h-screen flex items-center justify-center bg-white px-4 py-8 overflow-hidden relative">
       {/* Subtle dot pattern background */}
       <div className="absolute inset-0 opacity-15">
         <div className="absolute inset-0" style={{
@@ -100,44 +100,44 @@ export default function SimpleWaitlist() {
       
       <div className="max-w-2xl w-full relative z-10">
         <motion.div 
-          className="text-center mb-4 -mt-20"
+          className="text-center mb-6 sm:mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           {/* Logo using actual image */}
-          <div className="flex justify-center -mb-32">
+          <div className="flex justify-center mb-4 sm:mb-6">
             <Image
               src="/ryftlogo.png"
               alt="RYFT Logo"
               width={2400}
               height={800}
-              className="h-96 w-auto max-w-5xl"
+              className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto max-w-full"
               priority
             />
           </div>
           
-          <h1 className="text-3xl md:text-4xl font-bold text-navy-900 mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-900 mb-3 px-4">
             Commissions.{' '}
             <span className="text-accent-600">
               Automated.
             </span>
           </h1>
           
-          <p className="text-base text-navy-700 mb-6 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-navy-700 mb-6 leading-relaxed max-w-2xl mx-auto px-4">
             Ryft replaces spreadsheets and legacy tools with live, zero-setup commission models that integrate directly with your CRM and payroll systems.
           </p>
         </motion.div>
 
         <motion.div 
-          className="bg-navy-50 rounded-2xl p-6 border border-navy-100 shadow-lg mb-4"
+          className="bg-navy-50 rounded-2xl p-4 sm:p-6 border border-navy-100 shadow-lg mb-4 mx-4 sm:mx-0"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-navy-800 font-medium mb-2">
+              <label htmlFor="email" className="block text-navy-800 font-medium mb-2 text-sm sm:text-base">
                 Email Address
               </label>
               <input
@@ -151,7 +151,7 @@ export default function SimpleWaitlist() {
                 type="email"
                 id="email"
                 placeholder="you@company.com"
-                className="w-full px-4 py-3 rounded-lg bg-white border border-navy-200 text-navy-900 placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-300 text-base"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-navy-200 text-navy-900 placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
@@ -161,11 +161,11 @@ export default function SimpleWaitlist() {
               )}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <div className="flex flex-col gap-3 justify-center items-stretch sm:items-center">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-navy-900 hover:bg-navy-800 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-40"
+                className="w-full sm:w-auto bg-navy-900 hover:bg-navy-800 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl sm:min-w-48"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center gap-2">
@@ -176,31 +176,34 @@ export default function SimpleWaitlist() {
                   'Join the Waitlist →'
                 )}
               </button>
-              <a
-                href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white hover:bg-navy-50 text-navy-900 border-2 border-navy-900 hover:border-navy-800 px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-40 text-center"
-              >
-                Schedule a Meeting
-              </a>
-              <a
-                href="/blog"
-                className="bg-accent-50 hover:bg-accent-100 text-accent-700 border-2 border-accent-200 hover:border-accent-300 px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-40 text-center"
-              >
-                Read Blog
-              </a>
+              
+              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <a
+                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto bg-white hover:bg-navy-50 text-navy-900 border-2 border-navy-900 hover:border-navy-800 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center sm:min-w-48"
+                >
+                  Schedule a Meeting
+                </a>
+                <a
+                  href="/blog"
+                  className="w-full sm:w-auto bg-accent-50 hover:bg-accent-100 text-accent-700 border-2 border-accent-200 hover:border-accent-300 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center sm:min-w-48"
+                >
+                  Blog
+                </a>
+              </div>
             </div>
           </form>
         </motion.div>
 
         <motion.div 
-          className="text-center"
+          className="text-center px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <p className="text-navy-600 font-medium">
+          <p className="text-navy-600 font-medium text-sm sm:text-base">
             No spreadsheets. No setup. Just clarity.
           </p>
         </motion.div>

@@ -112,7 +112,7 @@ export default function SimpleWaitlist() {
               alt="RYFT Logo"
               width={2400}
               height={800}
-              className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto max-w-full"
+              className="h-32 sm:h-40 md:h-56 lg:h-64 xl:h-72 w-auto max-w-full"
               priority
             />
           </div>

@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   description: "Enterprise-grade commission tracking with zero setup complexity. Deploy in minutes, not months.",
   keywords: "commission management, sales operations, enterprise software, zero setup, commission tracking",
   authors: [{ name: "RYFT" }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: "RYFT",
     description: "Enterprise-grade commission tracking with zero setup complexity. Deploy in minutes, not months.",

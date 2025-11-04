@@ -14,7 +14,7 @@ export default async function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-white py-8 sm:py-16">
+      <div className="bg-white py-8 sm:py-12">
         {/* Back to Home - positioned absolutely in left corner */}
         <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
           <Link 
@@ -38,11 +38,11 @@ export default async function BlogPage() {
                   alt="RYFT Logo"
                   width={2400}
                   height={800}
-                  className="h-32 sm:h-40 md:h-48 lg:h-52 xl:h-56 w-auto max-w-full"
+                  className="h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 w-auto max-w-full"
                 />
               </Link>
-              <p className="text-sm sm:text-lg md:text-xl text-navy-600 max-w-2xl mx-auto mt-4 px-4">
-                Insights on commission management, sales operations, and the future of automated compensation.
+              <p className="text-sm sm:text-lg md:text-xl text-navy-600 max-w-2xl mx-auto -mt-24 px-4">
+                Thoughts on building, writing, and growing.
               </p>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default async function BlogPage() {
       </div>
 
       {/* Blog Posts */}
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
         <div className="max-w-4xl mx-auto">
           {posts.length === 0 ? (
             <div className="text-center py-8 sm:py-16 px-4">

@@ -112,12 +112,12 @@ export default function SimpleWaitlist() {
               alt="RYFT Logo"
               width={2400}
               height={800}
-              className="h-32 sm:h-40 md:h-48 lg:h-52 xl:h-56 w-auto max-w-full"
+              className="h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 w-auto max-w-full"
               priority
             />
           </div>
           
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-900 mb-3 px-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-900 mb-3 px-4 -mt-20">
             Commissions.{' '}
             <span className="text-accent-600">
               Automated.

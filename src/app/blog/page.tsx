@@ -41,7 +41,7 @@ export default async function BlogPage() {
                   className="h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 w-auto max-w-full"
                 />
               </Link>
-              <p className="text-sm sm:text-lg md:text-xl text-navy-600 max-w-2xl mx-auto -mt-24 px-4">
+              <p className="text-sm sm:text-lg md:text-xl text-navy-600 max-w-2xl mx-auto -mt-8 sm:-mt-12 md:-mt-16 lg:-mt-20 xl:-mt-24 px-4">
                 Thoughts on building, writing, and growing.
               </p>
             </div>

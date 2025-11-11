@@ -31,13 +31,18 @@ export default function SimpleWaitlist() {
         ]);
 
       if (supabaseError) {
+        console.error('Supabase error details:', supabaseError);
         throw supabaseError;
       }
 
       setIsSubmitted(true);
     } catch (err: any) {
       console.error('Error saving email:', err);
-      setError('Failed to join waitlist. Please try again.');
+      if (err.message && err.message.includes('duplicate key value violates unique constraint')) {
+        setError('This email is already on our waitlist! We\'ll be in touch soon.');
+      } else {
+        setError(`Failed to join waitlist: ${err.message || 'Please try again.'}`);
+      }
     }
   };
 
@@ -202,7 +207,7 @@ export default function SimpleWaitlist() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-navy-600 font-medium text-sm sm:text-base">
-            No spreadsheets. No setup. Just clarity.
+            No spreadsheets. No setup. Just clarity. 
           </p>
         </motion.div>
       </div>

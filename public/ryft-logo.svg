@@ -1,0 +1,6 @@
+<svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Triangle Logo -->
+  <path d="M150 250 L250 50 L350 250 L300 250 L250 150 L200 250 Z" fill="#0d1a2d"/>
+  <!-- RYFT Text -->
+  <text x="400" y="200" fill="#0d1a2d" style="font-size: 120px; font-family: Inter, sans-serif; font-weight: bold;">RYFT</text>
+</svg>

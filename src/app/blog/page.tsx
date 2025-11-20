@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Navigation } from '@/components/Navigation'
+import Footer from '@/components/Footer'
 import { getAllBlogPosts } from '@/lib/blog'
 import { formatDate } from '@/lib/utils'
 
@@ -12,42 +14,30 @@ export default async function BlogPage() {
   const posts = getAllBlogPosts()
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="bg-white py-8 sm:py-12">
-        {/* Back to Home - positioned absolutely in left corner */}
-        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-navy-600 hover:text-navy-900 font-medium transition-colors duration-300 text-sm sm:text-base"
-          >
-            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Home
-          </Link>
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            
-            <div className="text-center mt-8 sm:mt-0">
-              <Link href="/" className="inline-block">
-                <Image
-                  src="/ryftlogo.png"
-                  alt="RYFT Logo"
-                  width={2400}
-                  height={800}
-                  className="h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 w-auto max-w-full"
-                />
-              </Link>
-              <p className="text-sm sm:text-lg md:text-xl text-navy-600 max-w-2xl mx-auto -mt-8 sm:-mt-12 md:-mt-16 lg:-mt-20 xl:-mt-24 px-4">
-                Thoughts on building, writing, and growing.
-              </p>
+    <>
+      <Navigation />
+      <div className="min-h-screen bg-white">
+        {/* Header */}
+        <div className="bg-white py-4 sm:py-6">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center">
+                <Link href="/" className="inline-block">
+                  <Image
+                    src="/ryftlogo.png"
+                    alt="RYFT Logo"
+                    width={2400}
+                    height={800}
+                    className="h-32 sm:h-40 md:h-48 w-auto max-w-full"
+                  />
+                </Link>
+                <p className="text-sm sm:text-lg md:text-xl text-navy-600 max-w-2xl mx-auto -mt-4 sm:-mt-6 md:-mt-8 px-4">
+                  Thoughts on building, writing, and growing.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
       {/* Blog Posts */}
       <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
@@ -133,6 +123,8 @@ export default async function BlogPage() {
         </div>
       </div>
 
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }

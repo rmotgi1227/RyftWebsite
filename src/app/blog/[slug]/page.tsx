@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { Navigation } from '@/components/Navigation'
+import Footer from '@/components/Footer'
 import { getBlogPost, getAllBlogPosts } from '@/lib/blog'
 import { formatDate, calculateReadingTime } from '@/lib/utils'
 import { MDXRenderer } from '@/components/MDXRenderer'
@@ -61,19 +63,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const readingTime = calculateReadingTime(post.content)
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Back to Blog - positioned absolutely in left corner */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-        <Link 
-          href="/blog"
-          className="inline-flex items-center gap-2 text-navy-600 hover:text-navy-900 font-medium transition-colors duration-300 text-sm sm:text-base"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Blog
-        </Link>
-      </div>
+    <>
+      <Navigation />
+      <div className="min-h-screen bg-white">
+        {/* Back to Blog */}
+        <div className="container mx-auto px-4 sm:px-6 pt-4">
+          <Link 
+            href="/blog"
+            className="inline-flex items-center gap-2 text-navy-600 hover:text-navy-900 font-medium transition-colors duration-300 text-sm sm:text-base"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+          </Link>
+        </div>
 
       {/* Article Header */}
       <article className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 pt-12 sm:pt-8">
@@ -209,6 +213,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
       </article>
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }

@@ -12,25 +12,24 @@ export default function Footer() {
       title: 'Product',
       links: [
         { label: 'Features', href: '/product' },
-        { label: 'Book Demo', href: '/demo' },
+        { label: 'Zero Setup', href: '/product/zero-setup' },
+        { label: 'AI Plan Parsing', href: '/product/ai-plan-parsing' },
+        { label: 'Real-time Dashboards', href: '/product/real-time-dashboards' },
       ]
     },
     {
       title: 'Resources',
       links: [
         { label: 'Blog', href: '/blog' },
-        { label: 'Documentation', href: '#' },
-        { label: 'API Reference', href: '#' },
-        { label: 'Support', href: '#' },
+        { label: 'Book Demo', href: 'https://calendly.com/rishab-motgi-complytics/ryft-discovery-call' },
+        { label: 'Try it Free', href: '/try-free' },
       ]
     },
     {
       title: 'Company',
       links: [
-        { label: 'About', href: '#' },
-        { label: 'Careers', href: '#' },
-        { label: 'Contact', href: '#' },
-        { label: 'Privacy Policy', href: '#' },
+        { label: 'About', href: '/company/about' },
+        { label: 'Contact', href: '/contact' },
       ]
     }
   ];
@@ -52,9 +51,9 @@ export default function Footer() {
                   <Image
                     src="/ryftlogo.png"
                     alt="RYFT Logo"
-                    width={120}
-                    height={36}
-                    className="h-8 w-auto brightness-0 invert"
+                    width={240}
+                    height={72}
+                    className="h-16 w-auto brightness-0 invert"
                   />
                 </Link>
                 <p className="text-navy-300 text-sm leading-relaxed mb-s4">
@@ -63,7 +62,9 @@ export default function Footer() {
                 </p>
                 <div className="flex gap-s3">
                   <a 
-                    href="#" 
+                    href="https://x.com/rishabmotgi" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-8 h-8 bg-navy-800 hover:bg-navy-700 rounded-full flex items-center justify-center transition-colors duration-300"
                     aria-label="Twitter"
                   >
@@ -72,7 +73,9 @@ export default function Footer() {
                     </svg>
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/company/complytics/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-8 h-8 bg-navy-800 hover:bg-navy-700 rounded-full flex items-center justify-center transition-colors duration-300"
                     aria-label="LinkedIn"
                   >

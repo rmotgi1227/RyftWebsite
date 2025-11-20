@@ -4,8 +4,10 @@ import type { Metadata } from 'next'
 import { useState } from 'react'
 import { Navigation } from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import useAnalytics from '@/hooks/useAnalytics'
 
 export default function ContactPage() {
+  const { trackFormSubmission } = useAnalytics()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,13 +39,16 @@ export default function ContactPage() {
 
       if (response.ok) {
         setIsSubmitted(true)
+        trackFormSubmission('contact', true)
       } else {
         console.error('Failed to submit form')
         alert('Failed to send message. Please try again.')
+        trackFormSubmission('contact', false)
       }
     } catch (error) {
       console.error('Error submitting form:', error)
       alert('Failed to send message. Please try again.')
+      trackFormSubmission('contact', false)
     } finally {
       setIsSubmitting(false)
     }

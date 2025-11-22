@@ -1,14 +1,16 @@
 'use client';
 
-import * as gtag from '@/lib/gtag';
-
 export default function useAnalytics() {
   const trackEvent = (action: string, category?: string, label?: string, value?: number) => {
-    gtag.event(action, {
-      event_category: category,
-      event_label: label,
-      value,
-    });
+    const cookieConsent = localStorage.getItem('cookie-consent');
+    
+    if (cookieConsent === 'accepted' && window.gtag) {
+      window.gtag('event', action, {
+        event_category: category,
+        event_label: label,
+        value,
+      });
+    }
   };
 
   const trackButtonClick = (buttonName: string, location?: string) => {

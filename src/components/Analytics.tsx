@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react';
 import GoogleAnalytics from './GoogleAnalytics';
-import CookieConsentBanner from './CookieConsentBanner';
+import CookieBanner from './CookieBanner';
 import usePageView from '@/hooks/usePageView';
 
 function AnalyticsContent() {
@@ -11,14 +11,14 @@ function AnalyticsContent() {
   return (
     <>
       <GoogleAnalytics />
-      <CookieConsentBanner />
+      <CookieBanner />
     </>
   );
 }
 
 export default function Analytics() {
   return (
-    <Suspense fallback={<CookieConsentBanner />}>
+    <Suspense fallback={<CookieBanner />}>
       <AnalyticsContent />
     </Suspense>
   );

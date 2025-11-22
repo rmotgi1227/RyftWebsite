@@ -2,31 +2,30 @@
 
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { GA_TRACKING_ID, hasAnalyticsConsent } from '@/lib/gtag';
-import useCookieConsent from '@/hooks/useCookieConsent';
+
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
 export default function GoogleAnalytics() {
-  const { consent } = useCookieConsent();
   const [shouldLoadAnalytics, setShouldLoadAnalytics] = useState<boolean>(false);
 
   useEffect(() => {
-    // Only load analytics if tracking ID exists and user has consented
-    const hasConsent = hasAnalyticsConsent();
-    setShouldLoadAnalytics(!!GA_TRACKING_ID && hasConsent);
-  }, [consent]);
+    // Check if user consented to analytics cookies
+    const cookieConsent = localStorage.getItem('cookie-consent');
+    setShouldLoadAnalytics(!!GA_TRACKING_ID && cookieConsent === 'accepted');
+  }, []);
 
-  if (!shouldLoadAnalytics) {
+  if (!GA_TRACKING_ID || !shouldLoadAnalytics) {
     return null;
   }
 
   return (
     <>
       <Script
-        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        strategy="afterInteractive"
       />
       <Script
-        id="gtag-init"
+        id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
@@ -34,9 +33,8 @@ export default function GoogleAnalytics() {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-              anonymize_ip: true,
-              cookie_flags: 'secure;samesite=strict',
+              page_title: document.title,
+              page_location: window.location.href,
             });
           `,
         }}

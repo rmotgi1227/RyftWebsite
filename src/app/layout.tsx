@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   authors: [{ name: "RYFT" }],
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '256x256', type: 'image/x-icon' },
       { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
       { url: '/favicon.png', type: 'image/png', sizes: '16x16' },
       { url: '/favicon.ico', sizes: 'any' },

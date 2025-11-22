@@ -29,62 +29,48 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 shadow-2xl ${className}`}
       >
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div className="container mx-auto px-6 py-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             {/* Content */}
-            <div className="flex-1 space-y-3">
-              <div className="flex items-center gap-3">
-                {/* Cookie Icon */}
-                <div className="w-8 h-8 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-accent-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-2a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-navy-900">
-                  Cookie Preferences
-                </h3>
-              </div>
-              
-              <p className="text-navy-600 text-sm lg:text-base leading-relaxed max-w-3xl">
-                We use cookies to enhance your experience on our website. 
-                Necessary cookies are essential for basic functionality, while analytics cookies help us understand how you use our site. 
-                You can manage your preferences or learn more in our{' '}
+            <div className="flex-1">
+              <p className="text-navy-600 text-sm leading-relaxed">
+                We use cookies to enhance your experience. 
                 <a 
                   href="/privacy/cookies" 
-                  className="text-accent-600 hover:text-accent-700 underline font-medium"
+                  className="text-accent-600 hover:text-accent-700 underline ml-1"
                 >
-                  Cookie Policy
-                </a>.
+                  Learn more
+                </a>
               </p>
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+            <div className="flex gap-2 flex-shrink-0">
               <Button
-                variant="outline"
+                variant="secondary"
                 size="sm"
                 onClick={handleManagePreferences}
-                className="w-full sm:w-auto whitespace-nowrap"
+                className="text-xs px-3 py-1"
               >
-                Manage Preferences
+                Settings
               </Button>
               
               <Button
                 variant="outline"
                 size="sm"
                 onClick={rejectAll}
-                className="w-full sm:w-auto whitespace-nowrap"
+                className="text-xs px-3 py-1"
               >
-                Reject All
+                Reject
               </Button>
               
               <Button
                 variant="primary"
                 size="sm"
                 onClick={acceptAll}
-                className="w-full sm:w-auto whitespace-nowrap"
+                className="text-xs px-3 py-1"
               >
-                Accept All
+                Accept
               </Button>
             </div>
           </div>

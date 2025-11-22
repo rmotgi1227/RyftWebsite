@@ -29,48 +29,52 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 shadow-2xl ${className}`}
       >
-        <div className="container mx-auto px-10 py-4">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="container mx-auto px-8 py-6">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             {/* Content */}
-            <div className="flex-1">
-              <p className="text-navy-600 text-base leading-relaxed">
-                We use cookies to enhance your experience. 
+            <div className="flex-1 space-y-2">
+              <h3 className="text-lg font-semibold text-navy-900">
+                We use cookies on our website
+              </h3>
+              <p className="text-navy-600 text-base leading-relaxed max-w-2xl">
+                We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
+                You can choose which categories of cookies you allow.{' '}
                 <a 
                   href="/privacy/cookies" 
-                  className="text-accent-600 hover:text-accent-700 underline ml-1"
+                  className="text-accent-600 hover:text-accent-700 underline"
                 >
-                  Learn more
+                  Learn more in our Cookie Policy
                 </a>
               </p>
             </div>
 
             {/* Actions */}
-            <div className="flex gap-4 flex-shrink-0">
+            <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
               <Button
                 variant="secondary"
-                size="sm"
+                size="md"
                 onClick={handleManagePreferences}
-                className="text-sm px-5 py-2 min-w-[80px]"
+                className="w-full sm:w-auto whitespace-nowrap"
               >
-                Settings
+                Manage Preferences
               </Button>
               
               <Button
                 variant="outline"
-                size="sm"
+                size="md"
                 onClick={rejectAll}
-                className="text-sm px-5 py-2 min-w-[70px]"
+                className="w-full sm:w-auto whitespace-nowrap"
               >
-                Reject
+                Reject All
               </Button>
               
               <Button
                 variant="primary"
-                size="sm"
+                size="md"
                 onClick={acceptAll}
-                className="text-sm px-5 py-2 min-w-[70px]"
+                className="w-full sm:w-auto whitespace-nowrap"
               >
-                Accept
+                Accept All
               </Button>
             </div>
           </div>

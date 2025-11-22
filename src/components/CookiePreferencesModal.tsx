@@ -97,15 +97,15 @@ export default function CookiePreferencesModal({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className={`relative bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden ${className}`}
+            className={`relative bg-white rounded-xl shadow-2xl w-full max-w-lg max-h-[85vh] overflow-hidden ${className}`}
           >
             {/* Header */}
-            <div className="border-b border-navy-100 p-6">
+            <div className="border-b border-navy-100 p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-accent-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                  <div className="w-10 h-10 bg-navy-100 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-navy-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
                     </svg>
                   </div>
                   <div>
@@ -127,7 +127,7 @@ export default function CookiePreferencesModal({
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-6 overflow-y-auto max-h-[50vh]">
+            <div className="p-4 space-y-4 overflow-y-auto max-h-[50vh]">
               <p className="text-navy-600 leading-relaxed">
                 We use different types of cookies to enhance your experience on our website. 
                 You can choose which categories of cookies you'd like to allow.
@@ -206,11 +206,11 @@ export default function CookiePreferencesModal({
             </div>
 
             {/* Footer */}
-            <div className="border-t border-navy-100 p-6">
-              <div className="flex flex-col sm:flex-row gap-3 justify-end">
+            <div className="border-t border-navy-100 p-4">
+              <div className="flex flex-col sm:flex-row gap-2 justify-end">
                 <Button
                   variant="outline"
-                  size="md"
+                  size="sm"
                   onClick={handleRejectAll}
                   className="w-full sm:w-auto"
                 >
@@ -219,7 +219,7 @@ export default function CookiePreferencesModal({
                 
                 <Button
                   variant="outline"
-                  size="md"
+                  size="sm"
                   onClick={handleAcceptAll}
                   className="w-full sm:w-auto"
                 >
@@ -228,7 +228,7 @@ export default function CookiePreferencesModal({
                 
                 <Button
                   variant="primary"
-                  size="md"
+                  size="sm"
                   onClick={handleSavePreferences}
                   className="w-full sm:w-auto"
                 >

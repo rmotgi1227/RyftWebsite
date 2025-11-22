@@ -17,7 +17,7 @@ export default function CookiePreferencesModal({
   onClose, 
   className = '' 
 }: CookiePreferencesModalProps) {
-  const { consent, updateConsent, hideBanner, hasConsent } = useCookieConsent();
+  const { consent, updateConsent, hideBanner, hasConsent, acceptAll, rejectAll } = useCookieConsent();
   const [localConsent, setLocalConsent] = useState(consent);
 
   // Update local state when consent changes
@@ -123,7 +123,10 @@ export default function CookiePreferencesModal({
             <div className="px-6 pb-6">
               <div className="flex justify-center">
                 <button
-                  onClick={handleAcceptAll}
+                  onClick={() => {
+                    acceptAll();
+                    onClose();
+                  }}
                   className="w-full max-w-md bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-200"
                 >
                   Accept

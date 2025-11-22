@@ -19,16 +19,8 @@ export const metadata: Metadata = {
   keywords: "commission management, sales operations, enterprise software, zero setup, commission tracking",
   authors: [{ name: "RYFT" }],
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '256x256', type: 'image/x-icon' },
-      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
-      { url: '/favicon.png', type: 'image/png', sizes: '16x16' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
-    apple: [
-      { url: '/favicon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
   },
   openGraph: {
     title: "RYFT",

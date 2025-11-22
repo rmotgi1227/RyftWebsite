@@ -29,8 +29,8 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 shadow-2xl ${className}`}
       >
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="container mx-auto px-10 py-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             {/* Content */}
             <div className="flex-1">
               <p className="text-navy-600 text-base leading-relaxed">
@@ -45,12 +45,12 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
             </div>
 
             {/* Actions */}
-            <div className="flex gap-3 flex-shrink-0">
+            <div className="flex gap-4 flex-shrink-0">
               <Button
                 variant="secondary"
                 size="sm"
                 onClick={handleManagePreferences}
-                className="text-sm px-4 py-2"
+                className="text-sm px-5 py-2 min-w-[80px]"
               >
                 Settings
               </Button>
@@ -59,7 +59,7 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
                 variant="outline"
                 size="sm"
                 onClick={rejectAll}
-                className="text-sm px-4 py-2"
+                className="text-sm px-5 py-2 min-w-[70px]"
               >
                 Reject
               </Button>
@@ -68,7 +68,7 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
                 variant="primary"
                 size="sm"
                 onClick={acceptAll}
-                className="text-sm px-4 py-2"
+                className="text-sm px-5 py-2 min-w-[70px]"
               >
                 Accept
               </Button>

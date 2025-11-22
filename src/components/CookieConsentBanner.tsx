@@ -32,10 +32,7 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
         <div className="container mx-auto px-8 py-6">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             {/* Content */}
-            <div className="flex-1 space-y-2">
-              <h3 className="text-lg font-semibold text-navy-900">
-                We use cookies on our website
-              </h3>
+            <div className="flex-1">
               <p className="text-navy-600 text-base leading-relaxed max-w-2xl">
                 We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
                 You can choose which categories of cookies you allow.{' '}

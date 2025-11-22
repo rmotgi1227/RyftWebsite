@@ -29,11 +29,11 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 shadow-2xl ${className}`}
       >
-        <div className="container mx-auto px-6 py-3">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             {/* Content */}
             <div className="flex-1">
-              <p className="text-navy-600 text-sm leading-relaxed">
+              <p className="text-navy-600 text-base leading-relaxed">
                 We use cookies to enhance your experience. 
                 <a 
                   href="/privacy/cookies" 
@@ -45,12 +45,12 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
             </div>
 
             {/* Actions */}
-            <div className="flex gap-2 flex-shrink-0">
+            <div className="flex gap-3 flex-shrink-0">
               <Button
                 variant="secondary"
                 size="sm"
                 onClick={handleManagePreferences}
-                className="text-xs px-3 py-1"
+                className="text-sm px-4 py-2"
               >
                 Settings
               </Button>
@@ -59,7 +59,7 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
                 variant="outline"
                 size="sm"
                 onClick={rejectAll}
-                className="text-xs px-3 py-1"
+                className="text-sm px-4 py-2"
               >
                 Reject
               </Button>
@@ -68,7 +68,7 @@ export default function CookieConsentBanner({ className = '' }: CookieConsentBan
                 variant="primary"
                 size="sm"
                 onClick={acceptAll}
-                className="text-xs px-3 py-1"
+                className="text-sm px-4 py-2"
               >
                 Accept
               </Button>

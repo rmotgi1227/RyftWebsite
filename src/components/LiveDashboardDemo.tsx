@@ -260,7 +260,7 @@ export default function LiveDashboardDemo() {
             viewport={{ once: true }}
           >
             <motion.a
-              href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+              href="/demo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-lg font-bold transition-all duration-200 transform hover:scale-105"

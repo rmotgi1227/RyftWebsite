@@ -299,7 +299,7 @@ export default function InteractiveProductDemo() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                href="/demo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2"

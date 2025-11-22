@@ -195,7 +195,7 @@ export default function WhyChooseRyft() {
             <Button 
               variant="primary" 
               size="lg"
-              href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+              href="/demo"
               className="w-full sm:w-auto"
             >
               Book a Demo →

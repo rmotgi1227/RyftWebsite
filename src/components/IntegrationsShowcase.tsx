@@ -169,7 +169,7 @@ export default function IntegrationsShowcase() {
           <Button 
             variant="secondary" 
             size="lg"
-            href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+            href="/demo"
             className="mr-s4"
           >
             Talk to Our Team →
@@ -204,7 +204,7 @@ export default function IntegrationsShowcase() {
         <Button 
           variant="outline" 
           size="lg"
-          href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+          href="/demo"
         >
           Request Integration
         </Button>

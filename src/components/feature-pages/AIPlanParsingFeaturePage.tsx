@@ -69,7 +69,7 @@ export default function AIPlanParsingFeaturePage() {
                   transition={{ duration: 0.8, delay: 2 }}
                 >
                   <a
-                    href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                    href="/demo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
@@ -232,7 +232,7 @@ export default function AIPlanParsingFeaturePage() {
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
-                    href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                    href="/demo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-gradient-to-r from-accent-600 to-blue-600 hover:from-accent-700 hover:to-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg"

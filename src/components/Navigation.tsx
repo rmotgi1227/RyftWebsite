@@ -201,9 +201,7 @@ export function Navigation() {
             </Link>
             
             <Link 
-              href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/demo"
               className="bg-navy-900 hover:bg-navy-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
             >
               Book Demo
@@ -213,9 +211,7 @@ export function Navigation() {
           {/* Mobile Menu Button - To be implemented later if needed */}
           <div className="md:hidden">
             <Link 
-              href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/demo"
               className="bg-navy-900 hover:bg-navy-800 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
             >
               Book Demo

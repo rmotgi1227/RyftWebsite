@@ -265,7 +265,7 @@ export default function ModernProductOverview() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-navy-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-200"

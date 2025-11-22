@@ -114,7 +114,7 @@ export default function InteractiveHero() {
                   Try it Free
                 </motion.a>
                 <motion.a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 border-navy-300 hover:border-navy-400 text-navy-700 hover:text-navy-900 px-8 py-4 rounded-lg font-bold transition-all duration-200 hover:bg-navy-50 text-center"

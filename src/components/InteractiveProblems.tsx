@@ -293,7 +293,7 @@ export default function InteractiveProblems() {
                 <div className="text-lg font-bold mb-2">This is happening right now.</div>
                 <div className="text-navy-200 mb-4">Every day you wait costs you money, trust, and talent.</div>
                 <a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-white text-navy-900 py-3 rounded-lg font-bold text-center hover:bg-gray-100 transition-colors"

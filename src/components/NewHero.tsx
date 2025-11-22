@@ -60,7 +60,7 @@ export default function NewHero() {
           {/* Direct, Urgent CTAs - Navy Theme */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
             <a
-              href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+              href="/demo"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-lg font-bold text-center transition-colors duration-200 flex items-center justify-center gap-2"

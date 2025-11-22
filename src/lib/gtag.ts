@@ -1,8 +1,16 @@
+import { getCookieConsent } from '@/lib/cookieConsent';
+
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+
+// Check if analytics consent is given
+export const hasAnalyticsConsent = (): boolean => {
+  const consent = getCookieConsent();
+  return consent?.analytics === true;
+};
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && hasAnalyticsConsent()) {
     window.gtag('config', GA_TRACKING_ID, {
       page_path: url,
     });
@@ -22,7 +30,7 @@ export const event = (
     value?: number;
   }
 ) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && hasAnalyticsConsent()) {
     window.gtag('event', action, {
       event_category,
       event_label,

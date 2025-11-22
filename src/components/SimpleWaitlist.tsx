@@ -183,7 +183,7 @@ export default function SimpleWaitlist() {
               </button>
               
               <a
-                href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                href="/demo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full lg:w-auto bg-white hover:bg-navy-50 text-navy-900 border-2 border-navy-900 hover:border-navy-800 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center lg:min-w-48"

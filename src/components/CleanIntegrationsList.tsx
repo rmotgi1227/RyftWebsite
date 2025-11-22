@@ -137,7 +137,7 @@ export default function CleanIntegrationsList() {
             <div className="text-center">
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200"
@@ -165,7 +165,7 @@ export default function CleanIntegrationsList() {
             </p>
             
             <a
-              href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+              href="/demo"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-navy-300 hover:border-navy-400 text-navy-700 hover:text-navy-900 px-8 py-4 rounded-lg font-semibold transition-colors duration-200"

@@ -215,7 +215,7 @@ export default function IntegrationsWorkflow() {
 
               <div className="mt-8 pt-8 border-t border-gray-200">
                 <a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 text-center block"

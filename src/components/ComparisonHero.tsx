@@ -91,7 +91,7 @@ export default function ComparisonHero() {
           <Button 
             variant="secondary" 
             size="lg"
-            href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+            href="/demo"
             className="w-full sm:w-auto"
           >
             See RYFT in Action →

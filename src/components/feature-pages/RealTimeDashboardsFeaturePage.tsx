@@ -37,7 +37,7 @@ export default function RealTimeDashboardsFeaturePage() {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
-                      href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                      href="/demo"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
@@ -297,7 +297,7 @@ export default function RealTimeDashboardsFeaturePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200"

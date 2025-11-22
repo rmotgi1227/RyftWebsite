@@ -10,7 +10,8 @@ export default function usePageView() {
 
   useEffect(() => {
     if (gtag.GA_TRACKING_ID) {
-      const url = pathname + searchParams.toString();
+      const search = searchParams ? searchParams.toString() : '';
+      const url = pathname + (search ? `?${search}` : '');
       gtag.pageview(url);
     }
   }, [pathname, searchParams]);

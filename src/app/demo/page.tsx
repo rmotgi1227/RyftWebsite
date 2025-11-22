@@ -1,26 +1,55 @@
-import type { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Book a Demo - RYFT",
-  description: "Schedule a personalized demo of RYFT's commission management platform. See how we can transform your RevOps, Finance, and Sales operations.",
-  keywords: "book demo, schedule meeting, commission management demo, RYFT demo",
-  openGraph: {
-    title: "Book a Demo - RYFT",
-    description: "Schedule a personalized demo of RYFT's commission management platform. See how we can transform your RevOps, Finance, and Sales operations.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Book a Demo - RYFT",
-    description: "Schedule a personalized demo of RYFT's commission management platform. See how we can transform your RevOps, Finance, and Sales operations.",
-  },
-};
+import { Navigation } from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { useEffect } from "react";
+import useAnalytics from "@/hooks/useAnalytics";
 
 export default function DemoPage() {
+  const { trackPageView, trackDemo } = useAnalytics();
+
+  useEffect(() => {
+    trackPageView('demo-page');
+    
+    // Track when Calendly events happen
+    const handleCalendlyEvent = (event: any) => {
+      if (event.data?.event === 'calendly.event_scheduled') {
+        trackDemo('demo-page');
+      }
+    };
+
+    window.addEventListener('message', handleCalendlyEvent);
+    return () => window.removeEventListener('message', handleCalendlyEvent);
+  }, [trackPageView, trackDemo]);
+
   return (
-    <div>
-      <h1>Book a Demo - Coming Soon</h1>
-      <p>This page will contain the Calendly integration for demo bookings.</p>
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      
+      <main className="pt-16 pb-4 h-screen flex flex-col">
+        <div className="container mx-auto px-6 flex-1 flex flex-col">
+          {/* Hero Section */}
+          <div className="text-center mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-navy-900">
+              Schedule Your Demo
+            </h1>
+          </div>
+
+          {/* Calendly Widget */}
+          <div className="flex-1 max-w-6xl mx-auto w-full">
+            <iframe
+              src="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Schedule a RYFT Demo"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function Footer() {
       title: 'Resources',
       links: [
         { label: 'Blog', href: '/blog' },
-        { label: 'Book Demo', href: 'https://calendly.com/rishab-motgi-complytics/ryft-discovery-call' },
+        { label: 'Book Demo', href: '/demo' },
         { label: 'Try it Free', href: '/try-free' },
       ]
     },
@@ -114,13 +114,13 @@ export default function Footer() {
           >
             <p>© {currentYear} RYFT. All rights reserved.</p>
             <div className="flex gap-6 mt-3 md:mt-0">
-              <Link href="#" className="hover:text-white transition-colors duration-300">
+              <Link href="/terms" className="hover:text-white transition-colors duration-300">
                 Terms of Service
               </Link>
-              <Link href="#" className="hover:text-white transition-colors duration-300">
+              <Link href="/privacy" className="hover:text-white transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="#" className="hover:text-white transition-colors duration-300">
+              <Link href="/privacy/cookies" className="hover:text-white transition-colors duration-300">
                 Cookie Policy
               </Link>
             </div>

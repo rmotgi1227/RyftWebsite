@@ -51,7 +51,7 @@ export default function AuditAbilityFeaturePage() {
                   </div>
 
                   <a
-                    href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                    href="/demo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200"
@@ -340,7 +340,7 @@ export default function AuditAbilityFeaturePage() {
               
               <div className="space-y-6">
                 <a
-                  href="https://calendly.com/rishab-motgi-complytics/ryft-discovery-call"
+                  href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-navy-900 hover:bg-navy-800 text-white px-12 py-6 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"

@@ -201,7 +201,6 @@ export function Navigation() {
             >
               Try it Free
             </a>
->>>>>>> 353cb2f (Added redirect to app)
             
             <Link 
               href="/demo"

@@ -22,7 +22,7 @@ export default function Footer() {
       links: [
         { label: 'Blog', href: '/blog' },
         { label: 'Book Demo', href: '/demo' },
-        { label: 'Try it Free', href: '/try-free' },
+        { label: 'Try it Free', href: 'https://app.ryft.cloud' },
       ]
     },
     {
@@ -89,12 +89,23 @@ export default function Footer() {
                 <ul className="space-y-4">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link 
-                        href={link.href}
-                        className="text-navy-300 hover:text-white transition-colors duration-300 text-base"
-                      >
-                        {link.label}
-                      </Link>
+                      {link.href.startsWith('http') ? (
+                        <a 
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-navy-300 hover:text-white transition-colors duration-300 text-base"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link 
+                          href={link.href}
+                          className="text-navy-300 hover:text-white transition-colors duration-300 text-base"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

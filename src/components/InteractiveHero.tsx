@@ -106,7 +106,9 @@ export default function InteractiveHero() {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <motion.a
-                  href="/try-free"
+                  href="https://app.ryft.cloud"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-lg font-bold text-center transition-all duration-200 transform hover:scale-105"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

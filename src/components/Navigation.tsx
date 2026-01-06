@@ -193,12 +193,15 @@ export function Navigation() {
                 </div>
               )}
             </div>
-            <Link 
-              href="/try-free"
+            <a 
+              href="https://app.ryft.cloud"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-navy-300 hover:border-navy-400 text-navy-700 hover:text-navy-900 px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-navy-50"
             >
               Try it Free
-            </Link>
+            </a>
+>>>>>>> 353cb2f (Added redirect to app)
             
             <Link 
               href="/demo"

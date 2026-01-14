@@ -11,22 +11,22 @@ export default function BlogSection() {
   }
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-20 md:py-32 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-              Latest from our Blog
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-4 sm:mb-6 leading-tight font-display px-4">
+              Latest from our blog
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto px-4">
               Insights on commission management, sales operations, and building better revenue systems.
             </p>
           </div>
 
           {/* Blog Posts Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {posts.map((post, index) => (
               <article 
                 key={post.slug}
@@ -79,7 +79,7 @@ export default function BlogSection() {
           <div className="text-center">
             <Link 
               href="/blog"
-              className="inline-flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white px-6 py-3 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
             >
               View All Posts
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

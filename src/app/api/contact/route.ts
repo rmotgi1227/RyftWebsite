@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,6 +12,16 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Name, email, and message are required' },
         { status: 400 }
+      )
+    }
+
+    // If Supabase is not configured, just log and return success
+    // (in production, you might want to send emails or use another service)
+    if (!supabaseUrl || !supabaseServiceKey) {
+      console.log('Contact form submission (Supabase not configured):', { name, email, company, message })
+      return NextResponse.json(
+        { success: true, message: 'Message received (backend not configured)' },
+        { status: 200 }
       )
     }
 

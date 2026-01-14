@@ -86,22 +86,24 @@ export default function EnhancedComparison() {
   };
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-20 md:py-32 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Section Header */}
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16 md:mb-20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-              RYFT vs Competitors
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-4 sm:mb-6 leading-tight font-display px-4">
+              RYFT vs. the rest
             </h2>
-            
+            <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto px-4">
+              See how we stack up against traditional commission management tools.
+            </p>
           </motion.div>
 
           {activeView === 'before-after' ? (
@@ -213,42 +215,44 @@ export default function EnhancedComparison() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <table className="w-full bg-white rounded-lg shadow-sm border border-gray-200">
-                <thead>
-                  <tr className="bg-gray-50">
-                    <th className="text-left py-4 px-6 font-semibold text-navy-900">Feature</th>
-                    <th className="text-center py-4 px-4 font-semibold text-blue-600 bg-blue-50">RYFT</th>
-                    <th className="text-center py-4 px-4 font-semibold text-gray-700">Excel/Sheets</th>
-                    <th className="text-center py-4 px-4 font-semibold text-gray-700">Spiff</th>
-                    <th className="text-center py-4 px-4 font-semibold text-gray-700">Xactly</th>
-                    <th className="text-center py-4 px-4 font-semibold text-gray-700">CaptivateIQ</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sideComparison.categories.map((category, index) => (
-                    <motion.tr 
-                      key={index} 
-                      className="border-t border-gray-100 hover:bg-gray-25"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.4 + (index * 0.1) }}
-                      viewport={{ once: true }}
-                    >
-                      <td className="py-4 px-6 font-medium text-navy-800">
-                        {category.name}
-                      </td>
-                      <td className="text-center py-4 px-4 bg-blue-25 font-semibold text-blue-700 text-sm">
-                        {category.ryft}
-                      </td>
-                      {Object.values(category.competitors).map((value, compIndex) => (
-                        <td key={compIndex} className="text-center py-4 px-4 text-gray-700 text-sm">
-                          {value}
+              <div className="overflow-x-auto -mx-4 sm:mx-0">
+                <table className="w-full bg-white rounded-lg shadow-sm border border-gray-200 text-xs sm:text-sm min-w-[600px]">
+                  <thead>
+                    <tr className="bg-gray-50">
+                      <th className="text-left py-3 sm:py-4 px-3 sm:px-4 md:px-6 font-semibold text-navy-900">Feature</th>
+                      <th className="text-center py-3 sm:py-4 px-2 sm:px-4 font-semibold text-blue-600 bg-blue-50">RYFT</th>
+                      <th className="text-center py-3 sm:py-4 px-2 sm:px-4 font-semibold text-gray-700 hidden sm:table-cell">Excel/Sheets</th>
+                      <th className="text-center py-3 sm:py-4 px-2 sm:px-4 font-semibold text-gray-700 hidden md:table-cell">Spiff</th>
+                      <th className="text-center py-3 sm:py-4 px-2 sm:px-4 font-semibold text-gray-700 hidden lg:table-cell">Xactly</th>
+                      <th className="text-center py-3 sm:py-4 px-2 sm:px-4 font-semibold text-gray-700 hidden lg:table-cell">CaptivateIQ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sideComparison.categories.map((category, index) => (
+                      <motion.tr 
+                        key={index} 
+                        className="border-t border-gray-100 hover:bg-gray-25"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.4 + (index * 0.1) }}
+                        viewport={{ once: true }}
+                      >
+                        <td className="py-3 sm:py-4 px-3 sm:px-4 md:px-6 font-medium text-navy-800">
+                          {category.name}
                         </td>
-                      ))}
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
+                        <td className="text-center py-3 sm:py-4 px-2 sm:px-4 bg-blue-25 font-semibold text-blue-700">
+                          {category.ryft}
+                        </td>
+                        {Object.values(category.competitors).map((value, compIndex) => (
+                          <td key={compIndex} className={`text-center py-3 sm:py-4 px-2 sm:px-4 text-gray-700 ${compIndex >= 2 ? 'hidden md:table-cell' : compIndex >= 1 ? 'hidden sm:table-cell' : ''}`}>
+                            {value}
+                          </td>
+                        ))}
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </motion.div>
           )}
 

@@ -1,14 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export function Navigation() {
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [isCompanyDropdownOpen, setIsCompanyDropdownOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const [companyHoverTimeout, setCompanyHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleMouseEnter = () => {
     if (hoverTimeout) {
@@ -51,17 +62,37 @@ export function Navigation() {
   };
 
   return (
-    <nav className="bg-white border-b border-navy-100">
-      <div className="container mx-auto px-6 py-4">
+    <motion.nav 
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/98 backdrop-blur-md shadow-sm border-navy-100/50' 
+          : 'bg-white/95 backdrop-blur-sm border-navy-100'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className={`container mx-auto px-4 sm:px-6 transition-all duration-300 ${
+        isScrolled ? 'py-2 sm:py-3' : 'py-3 sm:py-4 md:py-5'
+      }`}>
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/ryftlogo.png"
-              alt="RYFT Logo"
-              width={360}
-              height={108}
-              className="h-24 w-auto"
-            />
+          <Link href="/" className="flex items-center group">
+            <motion.div
+              animate={{
+                scale: isScrolled ? 0.85 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src="/ryftlogo.png"
+                alt="RYFT Logo"
+                width={360}
+                height={108}
+                className={`transition-all duration-300 ${
+                  isScrolled ? 'h-12 sm:h-14 md:h-16 w-auto' : 'h-16 sm:h-20 md:h-24 w-auto'
+                }`}
+              />
+            </motion.div>
           </Link>
           
           {/* Center Navigation */}
@@ -78,17 +109,37 @@ export function Navigation() {
             >
               <Link 
                 href="/product"
-                className="flex items-center gap-1 text-navy-700 hover:text-navy-900 font-medium transition-colors duration-300"
+                className="flex items-center gap-1 text-navy-700 hover:text-navy-900 font-medium transition-all duration-300 group"
               >
-                Product
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="relative">
+                  Product
+                  <motion.span
+                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-900"
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </span>
+                <motion.svg 
+                  className="w-4 h-4 transition-transform duration-300"
+                  animate={{ rotate: isProductDropdownOpen ? 180 : 0 }}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                </motion.svg>
               </Link>
               
               {/* Dropdown Menu */}
-              {isProductDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-60 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+              <AnimatePresence>
+                {isProductDropdownOpen && (
+                  <motion.div 
+                    className="absolute top-full right-0 mt-2 w-60 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
                   <Link 
                     href="/product"
                     className="block px-3 py-2 text-navy-700 hover:bg-gray-50 transition-colors border-b border-gray-100"
@@ -148,8 +199,9 @@ export function Navigation() {
                       <div className="font-medium">Complete Auditability</div>
                     </div>
                   </Link>
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             
             {/* Company Dropdown */}
@@ -159,17 +211,37 @@ export function Navigation() {
               onMouseLeave={handleCompanyMouseLeave}
             >
               <button 
-                className="flex items-center gap-1 text-navy-700 hover:text-navy-900 font-medium transition-colors duration-300"
+                className="flex items-center gap-1 text-navy-700 hover:text-navy-900 font-medium transition-all duration-300 group"
               >
-                Company
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="relative">
+                  Company
+                  <motion.span
+                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-900"
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </span>
+                <motion.svg 
+                  className="w-4 h-4 transition-transform duration-300"
+                  animate={{ rotate: isCompanyDropdownOpen ? 180 : 0 }}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                </motion.svg>
               </button>
               
               {/* Company Dropdown Menu */}
-              {isCompanyDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+              <AnimatePresence>
+                {isCompanyDropdownOpen && (
+                  <motion.div 
+                    className="absolute top-full right-0 mt-2 w-32 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
                   <Link 
                     href="/company/about"
                     className="block px-3 py-2 text-navy-700 hover:bg-gray-50 transition-colors"
@@ -190,24 +262,32 @@ export function Navigation() {
                   >
                     <div className="font-medium">Blog</div>
                   </Link>
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <a 
+            <motion.a 
               href="https://app.ryft.cloud"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-navy-300 hover:border-navy-400 text-navy-700 hover:text-navy-900 px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-navy-50"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Try it Free
-            </a>
+            </motion.a>
             
-            <Link 
-              href="/demo"
-              className="bg-navy-900 hover:bg-navy-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Book Demo
-            </Link>
+              <Link 
+                href="/demo"
+                className="bg-navy-900 hover:bg-navy-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 block"
+              >
+                Book Demo
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button - To be implemented later if needed */}
@@ -221,6 +301,6 @@ export function Navigation() {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   )
 }

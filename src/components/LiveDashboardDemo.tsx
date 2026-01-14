@@ -98,16 +98,32 @@ export default function LiveDashboardDemo() {
   }, [demoState]);
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-20 md:py-32 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           
+          {/* Section Header */}
+          <motion.div 
+            className="text-center mb-12 sm:mb-16 md:mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-4 sm:mb-6 leading-tight font-display px-4">
+              See RYFT in action
+            </h2>
+            <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto px-4">
+              Watch commissions calculate in real-time as deals close. No manual work required.
+            </p>
+          </motion.div>
+
           {/* Demo and Features Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
             
             {/* Left: Live Dashboard Demo */}
             <motion.div 
-              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 shadow-2xl border relative overflow-hidden"
+              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-4 sm:p-6 shadow-2xl border relative overflow-hidden"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -115,15 +131,15 @@ export default function LiveDashboardDemo() {
             >
             
             {/* Dashboard Header */}
-            <div className="bg-white rounded-lg border shadow-sm min-h-[450px] flex flex-col">
-              <div className="bg-navy-900 text-white px-4 py-2 rounded-t-lg flex items-center justify-between">
+            <div className="bg-white rounded-lg border shadow-sm min-h-[350px] sm:min-h-[400px] md:min-h-[450px] flex flex-col">
+              <div className="bg-navy-900 text-white px-3 sm:px-4 py-2 rounded-t-lg flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className={`w-2 h-2 rounded-full ${
                     demoState === 'empty' ? 'bg-gray-400' :
                     demoState === 'syncing' ? 'bg-yellow-400 animate-pulse' :
                     'bg-green-400 animate-pulse'
                   }`}></div>
-                  <span className="font-medium">RYFT</span>
+                  <span className="font-medium text-sm sm:text-base">RYFT</span>
                 </div>
                 <div className="text-green-400 text-xs">
                   {demoState === 'empty' && 'Connecting...'}
@@ -133,7 +149,7 @@ export default function LiveDashboardDemo() {
                 </div>
               </div>
 
-              <div className="p-4 h-96 overflow-hidden">
+              <div className="p-3 sm:p-4 h-72 sm:h-80 md:h-96 overflow-hidden">
                 
                 {/* Sync Progress Bar - Always Present but Hidden */}
                 <div className={`bg-gray-50 rounded-lg p-4 mb-4 ${(demoState === 'syncing' || demoState === 'calculating') ? 'opacity-100' : 'opacity-0'}`}>
@@ -210,41 +226,42 @@ export default function LiveDashboardDemo() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
+              className="px-4 lg:px-0"
             >
-              <h3 className="text-3xl font-bold text-navy-900 mb-8">Watch RYFT in Action</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-navy-900 mb-6 sm:mb-8">Watch RYFT in Action</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <motion.div 
-                  className="border-l-4 border-navy-900 pl-6"
+                  className="border-l-4 border-navy-900 pl-4 sm:pl-6"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <div className="text-xl font-bold text-navy-900 mb-2">Zero Manual Setup</div>
-                  <div className="text-navy-600">Connect CRM & HRIS in minutes. AI automatically maps your architecture and configures everything.</div>
+                  <div className="text-lg sm:text-xl font-bold text-navy-900 mb-2">Zero Manual Setup</div>
+                  <div className="text-sm sm:text-base text-navy-600">Connect CRM & HRIS in minutes. AI automatically maps your architecture and configures everything.</div>
                 </motion.div>
                 
                 <motion.div 
-                  className="border-l-4 border-navy-900 pl-6"
+                  className="border-l-4 border-navy-900 pl-4 sm:pl-6"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <div className="text-xl font-bold text-navy-900 mb-2">AI Powered Parsing</div>
-                  <div className="text-navy-600">Upload commission plans in any format. AI reads PDFs, Word docs, and Excel files automatically.</div>
+                  <div className="text-lg sm:text-xl font-bold text-navy-900 mb-2">AI Powered Parsing</div>
+                  <div className="text-sm sm:text-base text-navy-600">Upload commission plans in any format. AI reads PDFs, Word docs, and Excel files automatically.</div>
                 </motion.div>
                 
                 <motion.div 
-                  className="border-l-4 border-navy-900 pl-6"
+                  className="border-l-4 border-navy-900 pl-4 sm:pl-6"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <div className="text-xl font-bold text-navy-900 mb-2">Deal Transparency</div>
-                  <div className="text-navy-600">Complete audit trails for every calculation. Your team sees exactly how commissions are calculated.</div>
+                  <div className="text-lg sm:text-xl font-bold text-navy-900 mb-2">Deal Transparency</div>
+                  <div className="text-sm sm:text-base text-navy-600">Complete audit trails for every calculation. Your team sees exactly how commissions are calculated.</div>
                 </motion.div>
               </div>
             </motion.div>

@@ -33,19 +33,19 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-20 md:py-32 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-4 sm:mb-6 leading-tight font-display px-4">
+              Frequently asked questions
             </h2>
           </div>
 
           {/* FAQ Items */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
@@ -53,9 +53,9 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 pr-8">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 pr-4 sm:pr-8">
                     {faq.question}
                   </h3>
                   <svg
@@ -71,13 +71,13 @@ export default function FAQ() {
                 </button>
                 
                 <div 
-                  className={`px-6 transition-all duration-200 ease-in-out ${
+                  className={`px-4 sm:px-6 transition-all duration-200 ease-in-out ${
                     openIndex === index 
-                      ? 'pb-6 opacity-100' 
+                      ? 'pb-4 sm:pb-6 opacity-100' 
                       : 'pb-0 opacity-0 h-0 overflow-hidden'
                   }`}
                 >
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

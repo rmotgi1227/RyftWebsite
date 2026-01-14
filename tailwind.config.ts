@@ -61,6 +61,7 @@ const config: Config = {
       animation: {
         'fade-up': 'fadeUp 0.8s ease-out',
         'fade-in': 'fadeIn 0.6s ease-out',
+        'move': 'move 20s linear infinite',
       },
       keyframes: {
         fadeUp: {
@@ -70,6 +71,10 @@ const config: Config = {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        move: {
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '50px 50px' },
         },
       },
     },

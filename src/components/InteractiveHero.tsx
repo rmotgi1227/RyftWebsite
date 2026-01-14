@@ -35,13 +35,24 @@ export default function InteractiveHero() {
   };
 
   return (
-    <section className="bg-white pt-16 pb-16 overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section className="bg-white pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-24 md:pb-32 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           
+          {/* Tagline */}
+          <motion.div 
+            className="text-center mb-6 sm:mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-xs sm:text-sm font-semibold text-accent-600 uppercase tracking-wider">
+              AI for Commission Management
+            </span>
+          </motion.div>
 
           {/* Main Content - Split Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center mb-12 sm:mb-16 md:mb-20">
             
             {/* Left: Headline & Copy */}
             <motion.div 
@@ -51,67 +62,37 @@ export default function InteractiveHero() {
               transition={{ duration: 0.8 }}
             >
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold text-navy-900 mb-6 leading-tight font-display"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-900 mb-4 sm:mb-6 md:mb-8 leading-[1.1] font-display px-4 lg:px-0"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Stop Wasting Hours Every Month on Commissions
+                Commission tracking that just works.
               </motion.h1>
               
               <motion.p 
-                className="text-xl text-navy-600 mb-8 leading-relaxed"
+                className="text-lg sm:text-xl md:text-2xl text-navy-600 mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0 px-4 lg:px-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                RYFT is the first zero-setup commission platform that deploys in under 2 minutes with AI-powered automation.
+                Zero-setup commission automation. Deploy in minutes, eliminate manual work forever.
               </motion.p>
-
-              {/* Interactive Toggle */}
-              <motion.div 
-                className="flex items-center justify-center gap-6 mb-8 bg-gray-50 rounded-full px-6 py-3"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <button
-                  onClick={() => setActiveDemo('chaos')}
-                  className={`px-3 py-1 text-sm font-medium transition-all duration-300 ${
-                    activeDemo === 'chaos' 
-                      ? 'text-red-600' 
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  Manual Process
-                </button>
-                <div className="text-gray-400">→</div>
-                <button
-                  onClick={() => setActiveDemo('ryft')}
-                  className={`px-3 py-1 text-sm font-medium transition-all duration-300 ${
-                    activeDemo === 'ryft' 
-                      ? 'text-green-600' 
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  RYFT Automation
-                </button>
-              </motion.div>
 
               {/* CTAs */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 px-4 lg:px-0"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
               >
                 <motion.a
                   href="https://app.ryft.cloud"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-lg font-bold text-center transition-all duration-200 transform hover:scale-105"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="bg-navy-900 hover:bg-navy-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg text-center transition-all duration-200 w-full sm:w-auto"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Try it Free
                 </motion.a>
@@ -119,12 +100,42 @@ export default function InteractiveHero() {
                   href="/demo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 border-navy-300 hover:border-navy-400 text-navy-700 hover:text-navy-900 px-8 py-4 rounded-lg font-bold transition-all duration-200 hover:bg-navy-50 text-center"
+                  className="border-2 border-navy-900 hover:bg-navy-900 hover:text-white text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-200 text-center w-full sm:w-auto"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Talk to Sales
+                  Book Demo
                 </motion.a>
+              </motion.div>
+
+              {/* Interactive Toggle */}
+              <motion.div 
+                className="flex items-center justify-center lg:justify-start gap-4 mb-6"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <button
+                  onClick={() => setActiveDemo('chaos')}
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
+                    activeDemo === 'chaos' 
+                      ? 'text-red-600 bg-red-50' 
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  Manual Process
+                </button>
+                <div className="text-gray-300">→</div>
+                <button
+                  onClick={() => setActiveDemo('ryft')}
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
+                    activeDemo === 'ryft' 
+                      ? 'text-green-600 bg-green-50' 
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  RYFT Automation
+                </button>
               </motion.div>
             </motion.div>
 
@@ -135,13 +146,13 @@ export default function InteractiveHero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 shadow-2xl border relative overflow-hidden">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-xl border border-gray-200 relative overflow-hidden">
                 
                 {/* Animated Background Pattern */}
-                <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0 opacity-[0.02]">
                   <div className="absolute inset-0" style={{
-                    backgroundImage: `radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0)`,
-                    backgroundSize: '20px 20px'
+                    backgroundImage: `radial-gradient(circle at 1px 1px, rgba(30, 41, 59, 0.15) 1px, transparent 0)`,
+                    backgroundSize: '24px 24px'
                   }}></div>
                 </div>
 
@@ -256,9 +267,9 @@ export default function InteractiveHero() {
                 )}
               </div>
 
-              {/* Floating Elements */}
+              {/* Floating Elements - More subtle */}
               <motion.div 
-                className="absolute -top-4 -right-4 bg-navy-900 text-white px-3 py-1 rounded-full text-xs font-bold animate-bounce"
+                className="absolute -top-2 -right-2 bg-navy-900 text-white px-4 py-2 rounded-full text-xs font-semibold shadow-lg"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.2 }}
@@ -266,7 +277,7 @@ export default function InteractiveHero() {
                 5min setup
               </motion.div>
               <motion.div 
-                className="absolute -bottom-4 -left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold"
+                className="absolute -bottom-2 -left-2 bg-green-500 text-white px-4 py-2 rounded-full text-xs font-semibold shadow-lg"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.4 }}

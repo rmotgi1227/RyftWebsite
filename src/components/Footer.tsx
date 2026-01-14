@@ -36,21 +36,21 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy-900 text-white">
-      <div className="container mx-auto px-6">
-        <div className="py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="py-12 sm:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 md:gap-16">
             {/* Company Info */}
-            <div className="lg:col-span-2">
+            <div className="md:col-span-2 lg:col-span-2">
               <Link href="/" className="inline-block mb-4">
                 <Image
                   src="/ryftlogo.png"
                   alt="RYFT Logo"
                   width={480}
                   height={144}
-                  className="h-32 w-auto brightness-0 invert"
+                  className="h-24 sm:h-28 md:h-32 w-auto brightness-0 invert"
                 />
               </Link>
-              <p className="text-navy-300 text-base leading-relaxed mb-8 max-w-sm">
+              <p className="text-navy-300 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-sm">
                 Enterprise-grade commission management with zero setup complexity. 
                 Deploy in minutes, not months.
               </p>
@@ -82,11 +82,11 @@ export default function Footer() {
 
             {/* Footer Links */}
             {footerSections.map((section, sectionIndex) => (
-              <div key={sectionIndex} className={`text-center lg:text-left ${sectionIndex === 0 ? 'flex flex-col justify-center' : 'mt-12'}`}>
-                <h3 className="font-bold text-white mb-6 text-lg">
+              <div key={sectionIndex} className={`text-center md:text-left ${sectionIndex === 0 ? 'flex flex-col justify-center' : 'mt-8 md:mt-12'}`}>
+                <h3 className="font-bold text-white mb-4 sm:mb-6 text-base sm:text-lg">
                   {section.title}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-3 sm:space-y-4">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
                       {link.href.startsWith('http') ? (
@@ -94,14 +94,14 @@ export default function Footer() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-navy-300 hover:text-white transition-colors duration-300 text-base"
+                          className="text-navy-300 hover:text-white transition-colors duration-300 text-sm sm:text-base"
                         >
                           {link.label}
                         </a>
                       ) : (
                         <Link 
                           href={link.href}
-                          className="text-navy-300 hover:text-white transition-colors duration-300 text-base"
+                          className="text-navy-300 hover:text-white transition-colors duration-300 text-sm sm:text-base"
                         >
                           {link.label}
                         </Link>
@@ -115,16 +115,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-navy-800 py-6">
+        <div className="border-t border-navy-800 py-4 sm:py-6">
           <motion.div
-            className="flex flex-col md:flex-row justify-between items-center text-sm text-navy-400"
+            className="flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-navy-400 px-4 sm:px-0"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p>© {currentYear} RYFT. All rights reserved.</p>
-            <div className="flex gap-6 mt-3 md:mt-0">
+            <p className="mb-3 md:mb-0">© {currentYear} RYFT. All rights reserved.</p>
+            <div className="flex flex-wrap gap-4 sm:gap-6 justify-center md:justify-start">
               <Link href="/terms" className="hover:text-white transition-colors duration-300">
                 Terms of Service
               </Link>

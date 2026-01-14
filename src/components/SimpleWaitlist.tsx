@@ -20,6 +20,15 @@ export default function SimpleWaitlist() {
     try {
       setError(null);
       
+      // Check if Supabase is configured (non-dummy URL)
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      if (!supabaseUrl || supabaseUrl === 'http://localhost:54321') {
+        // Backend not configured - just show success message
+        console.log('Waitlist signup (backend not configured):', data.email);
+        setIsSubmitted(true);
+        return;
+      }
+      
       // Insert email into Supabase
       const { error: supabaseError } = await supabase
         .from('waitlist')

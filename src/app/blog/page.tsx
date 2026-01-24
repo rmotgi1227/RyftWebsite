@@ -3,6 +3,7 @@ import { getAllBlogPosts } from '@/lib/blog'
 import { formatDate } from '@/lib/utils'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { ArrowRight, Calendar, User } from 'lucide-react'
 
 export const metadata = {

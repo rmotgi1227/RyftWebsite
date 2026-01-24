@@ -61,12 +61,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const readingTime = calculateReadingTime(post.content)
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen relative">
+      {/* Full page gradient background */}
+      <div className="fixed inset-0 bg-gradient-to-b from-black via-[#0d0d18] via-30% via-[#151528] via-60% to-[#1e1e38] -z-10" />
+      
       {/* Back to Blog - positioned absolutely in left corner */}
       <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
         <Link 
           href="/blog"
-          className="inline-flex items-center gap-2 text-navy-600 hover:text-navy-900 font-medium transition-colors duration-300 text-sm sm:text-base"
+          className="inline-flex items-center gap-2 text-white/70 hover:text-white font-medium transition-colors duration-300 text-sm sm:text-base"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -80,7 +83,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="max-w-4xl mx-auto">
 
           {/* Title */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 leading-tight mt-12 sm:mt-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight mt-12 sm:mt-8">
             {post.title}
           </h1>
 
@@ -90,7 +93,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.tags.map((tag) => (
                 <span 
                   key={tag}
-                  className="bg-accent-100 text-accent-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
+                  className="bg-primary/20 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
                 >
                   {tag}
                 </span>
@@ -99,9 +102,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Meta Info */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-navy-600 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-navy-100 text-sm sm:text-base">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-white/70 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-white/20 text-sm sm:text-base">
             <div className="flex items-center gap-2">
-              <span>by <strong>{post.author}</strong></span>
+              <span>by <strong className="text-white">{post.author}</strong></span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,14 +134,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Content */}
-          <div className="prose prose-sm sm:prose-base lg:prose-lg prose-navy max-w-none">
+          <div className="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none prose-headings:text-white prose-p:text-white/90 prose-li:text-white/90 prose-a:text-primary prose-strong:text-white prose-code:text-primary prose-pre:bg-black/30 prose-pre:border prose-pre:border-border/30 prose-blockquote:text-white/80 prose-blockquote:border-primary/50">
             <MDXRenderer content={post.content} />
           </div>
 
           {/* Author Bio */}
-          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-navy-100">
-            <div className="bg-gradient-to-br from-navy-50 to-white rounded-xl p-6 sm:p-8 border border-navy-100 shadow-lg">
-              <h3 className="text-lg sm:text-xl font-semibold text-navy-900 mb-6">
+          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-white/10">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-6">
                 About the Author
               </h3>
               <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
@@ -148,26 +151,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     alt="Rishab Motgi"
                     width={96}
                     height={96}
-                    className="rounded-full w-20 h-20 sm:w-24 sm:h-24 object-cover flex-shrink-0 border-3 border-white shadow-lg group-hover:scale-105 transition-transform duration-300"
+                    className="rounded-full w-20 h-20 sm:w-24 sm:h-24 object-cover flex-shrink-0 border-2 border-white/30 shadow-lg group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-400/20 to-navy-600/20 group-hover:opacity-100 opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-transparent group-hover:opacity-100 opacity-0 transition-opacity duration-300"></div>
                 </div>
                 <div className="flex-1 text-center sm:text-left">
-                  <h4 className="text-lg font-semibold text-navy-900 mb-2">Rishab Motgi</h4>
-                  <p className="text-accent-600 font-medium mb-3">Founder & CEO of Ryft</p>
-                  <p className="text-navy-600 leading-relaxed text-sm sm:text-base mb-4">
+                  <h4 className="text-lg font-semibold text-white mb-2">Rishab Motgi</h4>
+                  <p className="text-primary font-medium mb-3">Founder & CEO of Ryft</p>
+                  <p className="text-white/80 leading-relaxed text-sm sm:text-base mb-4">
                     Rishab Motgi is the founder and CEO of Ryft, a company rethinking how sales commissions are automated and managed. He's a student at Indiana University studying Economics and Quantitative Methods & Accounting, but his real education comes from building, from late nights spent learning, failing, and rebuilding. Through Ryft and his writing, Rishab explores the intersection of purpose, conviction, and creation. His work reflects a simple belief: you don't find meaning, you build it.
                   </p>
                   
                   {/* Social Links */}
                   <div className="flex items-center justify-center sm:justify-start gap-4">
-                    <span className="text-sm text-navy-500 font-medium">Connect with Rishab:</span>
+                    <span className="text-sm text-white/60 font-medium">Connect with Rishab:</span>
                     <div className="flex gap-3">
                       <a
                         href="https://x.com/rishabmotgi"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center w-8 h-8 rounded-full bg-navy-100 hover:bg-navy-200 text-navy-600 hover:text-navy-900 transition-all duration-300 hover:scale-110"
+                        className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
                         aria-label="Follow Rishab on Twitter"
                       >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -178,7 +181,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         href="https://www.linkedin.com/in/rishab-motgi/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center w-8 h-8 rounded-full bg-navy-100 hover:bg-navy-200 text-navy-600 hover:text-navy-900 transition-all duration-300 hover:scale-110"
+                        className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
                         aria-label="Connect with Rishab on LinkedIn"
                       >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -187,7 +190,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       </a>
                       <a
                         href="mailto:rishab@ryft.com"
-                        className="flex items-center justify-center w-8 h-8 rounded-full bg-navy-100 hover:bg-navy-200 text-navy-600 hover:text-navy-900 transition-all duration-300 hover:scale-110"
+                        className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
                         aria-label="Email Rishab"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,8 +205,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Trademark */}
-          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-navy-100">
-            <p className="text-xs sm:text-sm text-navy-400 text-center">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-white/20">
+            <p className="text-xs sm:text-sm text-white/50 text-center">
               © 2024 Ryft. All rights reserved. RYFT is a trademark of Ryft, Inc.
             </p>
           </div>

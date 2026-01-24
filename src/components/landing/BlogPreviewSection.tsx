@@ -90,8 +90,7 @@ export default function BlogPreviewSection() {
                   </div>
                 </CardContent>
               </Card>
-              </Link>
-            </AnimateOnScroll>
+            </Link>
           ))}
         </div>
       </div>

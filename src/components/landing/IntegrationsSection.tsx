@@ -111,28 +111,28 @@ const integrations = [
 
 export default function IntegrationsSection() {
   return (
-    <section id="integrations" className="py-16 md:py-24 px-6 md:px-10 lg:px-16 relative overflow-hidden">
+    <section id="integrations" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 relative overflow-hidden">
       {/* Dark to light gradient - Step 2: Dark */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d18] to-[#151528]" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <AnimateOnScroll animation="fade-up" className="text-center mb-16 md:mb-20">
+        <AnimateOnScroll animation="fade-up" className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
           <h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 px-2"
             style={{ fontFamily: "'Fraunces', Georgia, serif" }}
           >
             No platform migration.
             <br />
             <span className="text-muted-foreground font-light italic">Just better commissions.</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-2">
             Continue using your existing tools.
           </p>
         </AnimateOnScroll>
 
         {/* Integrations Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {integrations.map((integration, index) => (
             <AnimateOnScroll 
               key={integration.name}
@@ -140,16 +140,16 @@ export default function IntegrationsSection() {
               delay={index * 50}
             >
               <Card 
-                className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:bg-card/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group h-full"
+                className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:bg-card/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group h-full touch-manipulation"
               >
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl ${integration.color} p-3 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <CardContent className="p-3 sm:p-4 md:p-6 flex flex-col items-center text-center">
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-xl ${integration.color} p-2 sm:p-2.5 md:p-3 mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   {integration.icon}
                 </div>
-                <h3 className="font-semibold text-foreground mb-1 text-sm md:text-base">
+                <h3 className="font-semibold text-foreground mb-0.5 sm:mb-1 text-xs sm:text-sm md:text-base line-clamp-2">
                   {integration.name}
                 </h3>
-                <p className="text-muted-foreground text-xs md:text-sm">
+                <p className="text-muted-foreground text-[10px] sm:text-xs md:text-sm line-clamp-2">
                   {integration.description}
                 </p>
               </CardContent>

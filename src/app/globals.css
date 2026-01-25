@@ -389,3 +389,67 @@ a[href*="unicorn.studio"] {
   z-index: 1;
   pointer-events: none;
 }
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  /* Improve touch targets */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent text overflow */
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Better scrolling on mobile */
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Improve button tap targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better text rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Prevent layout shift on mobile */
+@media (max-width: 768px) {
+  img, svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Ensure mobile menu is fully opaque */
+[data-slot="sheet-content"] {
+  background-color: var(--background) !important;
+  opacity: 1 !important;
+}
+
+/* Scroll offset for sections to account for fixed navbar */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 640px) {
+  section[id] {
+    scroll-margin-top: 70px;
+  }
+}

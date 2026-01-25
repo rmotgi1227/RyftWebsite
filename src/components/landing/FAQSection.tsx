@@ -37,15 +37,15 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-16 md:py-24 px-6 md:px-10 lg:px-16 relative overflow-hidden">
+    <section id="faq" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 relative overflow-hidden">
       {/* Dark to light gradient - Step 4: Lightest */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1e1e38] to-[#262648]" />
       
       <div className="max-w-3xl mx-auto relative z-10">
         {/* Section Header */}
-        <AnimateOnScroll animation="fade-up" className="text-center mb-12 md:mb-16">
+        <AnimateOnScroll animation="fade-up" className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
           <h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 px-2"
             style={{ fontFamily: "'Fraunces', Georgia, serif" }}
           >
             Questions?
@@ -59,10 +59,10 @@ export default function FAQSection() {
           <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border-border/30">
-              <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline text-base md:text-lg">
+              <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline text-sm sm:text-base md:text-lg py-3 sm:py-4 px-2 sm:px-4 touch-manipulation">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-muted-foreground leading-relaxed text-sm sm:text-base px-2 sm:px-4 pb-3 sm:pb-4">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

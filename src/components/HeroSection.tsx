@@ -93,11 +93,11 @@ export default function HeroSection() {
 
       {/* Hero Content - Positioned at lower left with generous whitespace */}
       <div className="relative z-10 w-full h-full flex flex-col justify-end">
-        <div className="px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-16 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
           <div className="max-w-4xl">
             {/* Main Headline */}
             <h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight leading-[0.95]"
               style={{ fontFamily: "'Fraunces', Georgia, serif" }}
             >
               <span 
@@ -117,20 +117,20 @@ export default function HeroSection() {
               </span>
               {/* Platform Icons */}
               <div 
-                className={`flex items-center gap-2 sm:gap-2.5 md:gap-2.5 mt-4 md:mt-6 transition-all duration-700 ease-out ${
+                className={`flex items-center gap-1.5 sm:gap-2 md:gap-2.5 mt-3 sm:mt-4 md:mt-6 transition-all duration-700 ease-out flex-wrap ${
                   contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: '300ms' }}
               >
                 <span 
-                  className="text-muted-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl mr-2 sm:mr-3 md:mr-4"
+                  className="text-muted-foreground text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mr-1.5 sm:mr-2 md:mr-3 lg:mr-4 shrink-0"
                   style={{ fontFamily: "'Fraunces', Georgia, serif", fontStyle: 'italic', fontWeight: 300 }}
                 >
                   in
                 </span>
                 
                 {/* Microsoft 365 Logo */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 shrink-0">
                   <svg viewBox="0 0 48 48" className="w-full h-full drop-shadow-lg">
                     <rect x="2" y="2" width="20" height="20" rx="2" fill="#f25022"/>
                     <rect x="26" y="2" width="20" height="20" rx="2" fill="#7fba00"/>
@@ -140,10 +140,10 @@ export default function HeroSection() {
                 </div>
 
                 {/* Divider */}
-                <div className="w-px h-8 sm:h-10 md:h-12 bg-muted-foreground/40" />
+                <div className="w-px h-6 sm:h-8 md:h-10 lg:h-12 bg-muted-foreground/40 shrink-0" />
 
                 {/* Google Workspace Logo */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 shrink-0">
                   <svg viewBox="0 0 48 48" className="w-full h-full drop-shadow-lg">
                     <path fill="#4285f4" d="M24 9.5c3.2 0 6.1 1.1 8.4 3l6.3-6.3C34.7 2.7 29.7.5 24 .5 14.8.5 7 6.5 3.5 14.8l7.4 5.7C12.6 14.1 17.8 9.5 24 9.5z"/>
                     <path fill="#34a853" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.3 5.7c4.3-4 6.8-9.9 6.8-17.4z"/>

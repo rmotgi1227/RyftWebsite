@@ -21,11 +21,11 @@ export default async function BlogPage() {
       
       {/* Header */}
       <header className="border-b border-border/20 bg-black/50 backdrop-blur-md sticky top-0 z-50">
-        <div className="px-6 md:px-10 lg:px-16 py-4">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-1.5 sm:gap-2">
               {/* Logo */}
-              <svg viewBox="0 0 32 32" className="h-8 w-8">
+              <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 shrink-0">
                 <defs>
                   <clipPath id="blog-swoosh-clip">
                     <path d="M0 0 H32 V32 H0 Z M6 30 Q18 16 8 2 L4 2 Q12 18 4 30 Z" />
@@ -39,7 +39,7 @@ export default async function BlogPage() {
                 />
               </svg>
               <span 
-                className="text-foreground font-medium tracking-[0.15em] text-lg"
+                className="text-foreground font-medium tracking-[0.15em] text-base sm:text-lg"
                 style={{ fontFamily: 'DM Sans, sans-serif' }}
               >
                 RYFT
@@ -50,23 +50,23 @@ export default async function BlogPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16 relative">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 relative">
         <div className="max-w-4xl mx-auto text-center">
           <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 sm:mb-4"
             style={{ fontFamily: "'Fraunces', Georgia, serif" }}
           >
             Insights & 
             <span className="text-muted-foreground font-light italic"> Ideas</span>
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-2">
             Thoughts on building, commission management, sales operations, and the future of automation.
           </p>
         </div>
       </section>
 
       {/* Blog Posts */}
-      <section className="px-6 md:px-10 lg:px-16 pb-24 relative">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-16 pb-16 sm:pb-20 md:pb-24 relative">
         <div className="max-w-4xl mx-auto">
           {posts.length === 0 ? (
             <Card className="text-center py-16 bg-black/30 border-border/30 backdrop-blur-sm">
@@ -86,24 +86,24 @@ export default async function BlogPage() {
               </CardContent>
             </Card>
           ) : (
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
               {posts.map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="block group touch-manipulation">
                   <Card className="bg-black/30 border-border/30 hover:border-primary/30 transition-all duration-300 hover:shadow-lg overflow-hidden backdrop-blur-sm">
-                    <CardHeader>
-                      <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <div className="flex items-center gap-1.5 text-muted-foreground text-sm">
-                          <Calendar className="h-4 w-4" />
+                    <CardHeader className="p-4 sm:p-6">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                        <div className="flex items-center gap-1.5 text-muted-foreground text-xs sm:text-sm">
+                          <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                           <span>{formatDate(post.publishDate)}</span>
                         </div>
-                        <div className="flex items-center gap-1.5 text-muted-foreground text-sm">
-                          <User className="h-4 w-4" />
+                        <div className="flex items-center gap-1.5 text-muted-foreground text-xs sm:text-sm">
+                          <User className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                           <span>{post.author}</span>
                         </div>
                         {post.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-2">
+                          <div className="flex flex-wrap gap-1.5 sm:gap-2">
                             {post.tags.slice(0, 2).map((tag) => (
-                              <Badge key={tag} variant="outline" className="text-xs">
+                              <Badge key={tag} variant="outline" className="text-[10px] sm:text-xs">
                                 {tag}
                               </Badge>
                             ))}
@@ -111,21 +111,21 @@ export default async function BlogPage() {
                         )}
                       </div>
                       
-                      <CardTitle className="text-xl md:text-2xl group-hover:text-primary transition-colors duration-300">
+                      <CardTitle className="text-lg sm:text-xl md:text-2xl group-hover:text-primary transition-colors duration-300">
                         {post.title}
                       </CardTitle>
                       
                       {post.seoDescription && (
-                        <CardDescription className="text-base mt-2 line-clamp-2">
+                        <CardDescription className="text-sm sm:text-base mt-2 line-clamp-2">
                           {post.seoDescription}
                         </CardDescription>
                       )}
                     </CardHeader>
                     
-                    <CardContent>
-                      <div className="flex items-center text-primary font-medium group-hover:gap-3 gap-2 transition-all duration-300">
+                    <CardContent className="p-4 sm:p-6 pt-0">
+                      <div className="flex items-center text-primary font-medium group-hover:gap-3 gap-2 transition-all duration-300 text-sm sm:text-base">
                         Read article
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                        <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform duration-300 shrink-0" />
                       </div>
                     </CardContent>
                   </Card>

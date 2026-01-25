@@ -80,11 +80,12 @@ export default function LoginPage() {
       />
 
       {/* Back to Home */}
-      <div className="absolute top-6 left-6 z-20">
-        <Button variant="ghost" size="sm" asChild className="text-white/70 hover:text-white hover:bg-white/10">
-          <Link href="/" className="gap-2">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20">
+        <Button variant="ghost" size="sm" asChild className="text-white/70 hover:text-white hover:bg-white/10 touch-manipulation h-9 sm:h-10">
+          <Link href="/" className="gap-1.5 sm:gap-2 text-xs sm:text-sm">
+            <ArrowLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span className="hidden sm:inline">Back to Home</span>
+            <span className="sm:hidden">Back</span>
           </Link>
         </Button>
       </div>

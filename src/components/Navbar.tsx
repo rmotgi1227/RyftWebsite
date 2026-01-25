@@ -9,7 +9,11 @@ import {
   SheetContent,
   SheetTrigger,
   SheetTitle,
+  SheetHeader,
+  SheetFooter,
+  SheetClose,
 } from "@/components/ui/sheet"
+import { Separator } from "@/components/ui/separator"
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -22,6 +26,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [visible, setVisible] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -32,27 +37,72 @@ export default function Navbar() {
       setScrolled(window.scrollY > 50)
     }
     window.addEventListener("scroll", handleScroll)
+    
+    // Handle smooth scroll with offset for hash links
+    const handleHashNavigation = () => {
+      if (window.location.hash) {
+        const hash = window.location.hash.substring(1)
+        const targetElement = document.getElementById(hash)
+        if (targetElement) {
+          const headerHeight = 80 // Approximate navbar height
+          const targetPosition = targetElement.offsetTop - headerHeight
+          setTimeout(() => {
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            })
+          }, 100)
+        }
+      }
+    }
+    
+    // Handle initial hash on load
+    handleHashNavigation()
+    
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashNavigation)
+    
     return () => {
       window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener('hashchange', handleHashNavigation)
       clearTimeout(timer)
     }
   }, [])
+  
+  // Handle click on hash links with offset
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const targetId = href.substring(1)
+      const targetElement = document.getElementById(targetId)
+      if (targetElement) {
+        const headerHeight = 80
+        const targetPosition = targetElement.offsetTop - headerHeight
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        })
+        // Update URL without triggering scroll
+        window.history.pushState(null, '', href)
+      }
+    }
+  }
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 bg-background/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-0 ${
         scrolled 
-          ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm" 
+          ? "border-b border-border/50 shadow-sm" 
           : ""
       } ${visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
     >
-      <nav className="w-full px-6 md:px-10 lg:px-16 py-4">
+      <nav className="w-full px-4 sm:px-6 md:px-10 lg:px-16 py-3 sm:py-4 md:py-4 h-[72px] md:h-auto flex items-center">
         <div className="flex items-center justify-between w-full">
           {/* Logo - Left */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0 min-w-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
               {/* Triangle Icon with Swoosh */}
-              <svg viewBox="0 0 32 32" className="h-8 w-8">
+              <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 shrink-0">
                 <defs>
                   <clipPath id="swoosh-clip">
                     <path d="M0 0 H32 V32 H0 Z M6 30 Q18 16 8 2 L4 2 Q12 18 4 30 Z" />
@@ -68,7 +118,7 @@ export default function Navbar() {
               </svg>
               {/* RYFT Text */}
               <span 
-                className="text-foreground font-medium tracking-[0.15em] text-lg"
+                className="text-foreground font-medium tracking-[0.15em] text-base sm:text-lg truncate"
                 style={{ fontFamily: 'DM Sans, sans-serif' }}
               >
                 RYFT
@@ -83,6 +133,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
                     className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent/50"
                   >
                     {link.label}
@@ -102,35 +153,56 @@ export default function Navbar() {
           {/* Mobile Menu */}
           <div className="md:hidden">
             {mounted ? (
-              <Sheet>
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
+                  <Button variant="ghost" size="icon" className="h-10 w-10 touch-manipulation">
                     <Menu className="h-5 w-5" />
                     <span className="sr-only">Toggle menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] pt-12">
-                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                  <nav className="flex flex-col gap-4">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-lg text-muted-foreground hover:text-foreground transition-colors py-2"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                    <div className="pt-4 border-t border-border">
-                      <Button variant="default" className="w-full" asChild>
-                        <Link href="/login">Log in</Link>
-                      </Button>
+                <SheetContent 
+                  side="right" 
+                  className="w-[85vw] max-w-[320px] sm:w-[320px] p-0 bg-background border-l border-border/50 flex flex-col"
+                >
+                  <SheetHeader className="px-6 pt-6 pb-4">
+                    <SheetTitle className="text-left text-xl font-semibold">
+                      Menu
+                    </SheetTitle>
+                  </SheetHeader>
+                  
+                  <nav className="flex-1 px-6 py-2">
+                    <div className="flex flex-col gap-1">
+                      {navLinks.map((link) => (
+                        <SheetClose key={link.href} asChild>
+                          <Link
+                            href={link.href}
+                            onClick={(e) => {
+                              handleLinkClick(e, link.href)
+                              setMobileMenuOpen(false)
+                            }}
+                            className="text-base sm:text-lg text-foreground hover:text-primary transition-colors py-3 px-3 -mx-3 rounded-md hover:bg-accent/50 touch-manipulation font-medium"
+                          >
+                            {link.label}
+                          </Link>
+                        </SheetClose>
+                      ))}
                     </div>
                   </nav>
+
+                  <SheetFooter className="px-6 pb-6 pt-4 flex-col gap-3">
+                    <Separator className="mb-2" />
+                    <SheetClose asChild>
+                      <Button variant="default" className="w-full touch-manipulation" asChild>
+                        <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                          Log in
+                        </Link>
+                      </Button>
+                    </SheetClose>
+                  </SheetFooter>
                 </SheetContent>
               </Sheet>
             ) : (
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="h-10 w-10">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>

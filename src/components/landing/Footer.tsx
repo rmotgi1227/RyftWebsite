@@ -33,15 +33,15 @@ export default function Footer() {
       {/* Dark to light gradient - Step 5: Lightest end */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#262648] to-[#2a2a50]" />
       
-      <div className="px-6 md:px-10 lg:px-16 py-12 md:py-16 relative z-10">
+      <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10 md:py-12 lg:py-16 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Footer Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 lg:gap-12">
             {/* Brand Column */}
-            <div className="col-span-2 md:col-span-1">
-              <Link href="/" className="flex items-center gap-2 mb-4">
+            <div className="col-span-2 sm:col-span-3 md:col-span-1">
+              <Link href="/" className="flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                 {/* Triangle Icon with Swoosh */}
-                <svg viewBox="0 0 32 32" className="h-7 w-7">
+                <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-7 sm:w-7 shrink-0">
                   <defs>
                     <clipPath id="footer-swoosh-clip">
                       <path d="M0 0 H32 V32 H0 Z M6 30 Q18 16 8 2 L4 2 Q12 18 4 30 Z" />
@@ -55,26 +55,26 @@ export default function Footer() {
                   />
                 </svg>
                 <span 
-                  className="text-foreground font-medium tracking-[0.15em] text-lg"
+                  className="text-foreground font-medium tracking-[0.15em] text-base sm:text-lg"
                   style={{ fontFamily: 'DM Sans, sans-serif' }}
                 >
                   RYFT
                 </span>
               </Link>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                 The commission copilot that lives inside Excel. Built for RevOps and Finance teams.
               </p>
             </div>
 
             {/* Product Links */}
             <div>
-              <h4 className="font-semibold text-foreground mb-4 text-sm">Product</h4>
-              <ul className="space-y-3">
+              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-xs sm:text-sm">Product</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.product.map((link) => (
                   <li key={link.href}>
                     <Link 
                       href={link.href}
-                      className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                      className="text-muted-foreground text-xs sm:text-sm hover:text-foreground transition-colors touch-manipulation block py-1"
                     >
                       {link.label}
                     </Link>
@@ -85,13 +85,13 @@ export default function Footer() {
 
             {/* Company Links */}
             <div>
-              <h4 className="font-semibold text-foreground mb-4 text-sm">Company</h4>
-              <ul className="space-y-3">
+              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-xs sm:text-sm">Company</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.href}>
                     <Link 
                       href={link.href}
-                      className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                      className="text-muted-foreground text-xs sm:text-sm hover:text-foreground transition-colors touch-manipulation block py-1"
                     >
                       {link.label}
                     </Link>
@@ -102,13 +102,13 @@ export default function Footer() {
 
             {/* Resources Links */}
             <div>
-              <h4 className="font-semibold text-foreground mb-4 text-sm">Resources</h4>
-              <ul className="space-y-3">
+              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-xs sm:text-sm">Resources</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.resources.map((link) => (
                   <li key={link.href}>
                     <Link 
                       href={link.href}
-                      className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                      className="text-muted-foreground text-xs sm:text-sm hover:text-foreground transition-colors touch-manipulation block py-1"
                     >
                       {link.label}
                     </Link>
@@ -119,13 +119,13 @@ export default function Footer() {
 
             {/* Legal Links */}
             <div>
-              <h4 className="font-semibold text-foreground mb-4 text-sm">Legal</h4>
-              <ul className="space-y-3">
+              <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-xs sm:text-sm">Legal</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.legal.map((link) => (
                   <li key={link.href}>
                     <Link 
                       href={link.href}
-                      className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                      className="text-muted-foreground text-xs sm:text-sm hover:text-foreground transition-colors touch-manipulation block py-1"
                     >
                       {link.label}
                     </Link>
@@ -135,19 +135,19 @@ export default function Footer() {
             </div>
           </div>
 
-          <Separator className="my-8 bg-border/50" />
+          <Separator className="my-6 sm:my-8 bg-border/50" />
 
           {/* Bottom Bar */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} Ryft AI. All rights reserved.</p>
-            <div className="flex items-center gap-6">
-              <Link href="https://twitter.com" className="hover:text-foreground transition-colors">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
+            <p className="text-center sm:text-left">© {new Date().getFullYear()} Ryft AI. All rights reserved.</p>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <Link href="https://twitter.com" className="hover:text-foreground transition-colors touch-manipulation py-1">
                 Twitter
               </Link>
-              <Link href="https://linkedin.com" className="hover:text-foreground transition-colors">
+              <Link href="https://linkedin.com" className="hover:text-foreground transition-colors touch-manipulation py-1">
                 LinkedIn
               </Link>
-              <Link href="https://github.com" className="hover:text-foreground transition-colors">
+              <Link href="https://github.com" className="hover:text-foreground transition-colors touch-manipulation py-1">
                 GitHub
               </Link>
             </div>

@@ -52,60 +52,27 @@ const integrations = [
     color: "bg-orange-500/10",
   },
   {
-    name: "QuickBooks",
-    description: "Push payouts to accounting",
+    name: "Microsoft Word",
+    description: "Export reports and commission docs",
     icon: (
       <svg viewBox="0 0 48 48" className="w-full h-full">
-        <circle cx="24" cy="24" r="20" fill="#2ca01c"/>
-        <path fill="#fff" d="M17,14h4v3h-4c-1.7,0-3,1.3-3,3v8c0,1.7,1.3,3,3,3h4v3h-4c-3.3,0-6-2.7-6-6v-8C11,16.7,13.7,14,17,14z M31,14 c3.3,0,6,2.7,6,6v8c0,3.3-2.7,6-6,6h-4v-3h4c1.7,0,3-1.3,3-3v-8c0-1.7-1.3-3-3-3h-4v-3H31z"/>
+        <path fill="#2b579a" d="M40 8H8c-1.1 0-2 .9-2 2v28c0 1.1.9 2 2 2h32c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/>
+        <path fill="#fff" d="M26.5 18.2l1.4 7.2 2.2-5.4h2.8l2.2 5.4 1.4-7.2h2.4l-2.8 12h-2.6l-2.2-5.6-2.2 5.6h-2.6L24 18.2h2.5zm-8.2 5.4l1.2-4.2-1.8-5.4h2.6l2.2 6.4 2.2-6.4h2.6l-1.8 5.4 1.2 4.2h2.4l-2.8-8.4h-2.2l-2.4 7-2.4-7h-2.2l-2.8 8.4h2.4z"/>
       </svg>
     ),
-    color: "bg-green-500/10",
+    color: "bg-blue-500/10",
   },
   {
-    name: "Slack",
-    description: "Alert reps on commission updates",
+    name: "Google Docs",
+    description: "Create and share commission docs",
     icon: (
       <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#33d375" d="M33,8c0-2.2-1.8-4-4-4s-4,1.8-4,4v10c0,2.2,1.8,4,4,4s4-1.8,4-4V8z"/>
-        <path fill="#33d375" d="M43,18c0,2.2-1.8,4-4,4h-4v-4c0-2.2,1.8-4,4-4S43,15.8,43,18z"/>
-        <path fill="#40c4ff" d="M8,15c-2.2,0-4,1.8-4,4s1.8,4,4,4h10c2.2,0,4-1.8,4-4s-1.8-4-4-4H8z"/>
-        <path fill="#40c4ff" d="M18,5c-2.2,0-4,1.8-4,4v4h4c2.2,0,4-1.8,4-4S20.2,5,18,5z"/>
-        <path fill="#e91e63" d="M15,40c0,2.2,1.8,4,4,4s4-1.8,4-4V30c0-2.2-1.8-4-4-4s-4,1.8-4,4V40z"/>
-        <path fill="#e91e63" d="M5,30c0-2.2,1.8-4,4-4h4v4c0,2.2-1.8,4-4,4S5,32.2,5,30z"/>
-        <path fill="#ffc107" d="M40,33c2.2,0,4-1.8,4-4s-1.8-4-4-4H30c-2.2,0-4,1.8-4,4s1.8,4,4,4H40z"/>
-        <path fill="#ffc107" d="M30,43c2.2,0,4-1.8,4-4v-4h-4c-2.2,0-4,1.8-4,4S27.8,43,30,43z"/>
+        <path fill="#4285f4" d="M37 45H11c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h18l10 10v28c0 1.1-.9 2-2 2z"/>
+        <path fill="#a1c2f4" d="M29 5v10h10L29 5z"/>
+        <path fill="#fff" d="M15 20h18v2H15v-2zm0 6h18v2H15v-2zm0 6h12v2H15v-2z"/>
       </svg>
     ),
-    color: "bg-purple-500/10",
-  },
-  {
-    name: "Microsoft Teams",
-    description: "Share commission reports instantly",
-    icon: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#5059c9" d="M44,22v10c0,1.1-0.9,2-2,2h-4V20h4C43.1,20,44,20.9,44,22z"/>
-        <circle fill="#5059c9" cx="38" cy="14" r="4"/>
-        <path fill="#7b83eb" d="M35,20v14c0,3.3-2.7,6-6,6H13c-0.4,0-0.8,0-1.1-0.1C9.2,39.4,7,36.9,7,34V20c0-3.3,2.7-6,6-6h16 C32.3,14,35,16.7,35,20z"/>
-        <circle fill="#7b83eb" cx="26" cy="8" r="5"/>
-        <path fill="#fff" d="M26,24h-5v11h-4V24h-5v-4h14V24z"/>
-      </svg>
-    ),
-    color: "bg-indigo-500/10",
-  },
-  {
-    name: "Zapier",
-    description: "Connect any data source",
-    icon: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#ff4a00" d="M24,4c-11,0-20,9-20,20s9,20,20,20s20-9,20-20S35,4,24,4z M24,34c-5.5,0-10-4.5-10-10s4.5-10,10-10 s10,4.5,10,10S29.5,34,24,34z"/>
-        <polygon fill="#ff4a00" points="24,14 26,22 24,24 22,22"/>
-        <polygon fill="#ff4a00" points="24,34 22,26 24,24 26,26"/>
-        <polygon fill="#ff4a00" points="14,24 22,22 24,24 22,26"/>
-        <polygon fill="#ff4a00" points="34,24 26,26 24,24 26,22"/>
-      </svg>
-    ),
-    color: "bg-orange-500/10",
+    color: "bg-blue-500/10",
   },
 ]
 
@@ -131,8 +98,8 @@ export default function IntegrationsSection() {
           </p>
         </AnimateOnScroll>
 
-        {/* Integrations Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+        {/* Integrations Grid - 3 cols x 2 rows */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
           {integrations.map((integration, index) => (
             <AnimateOnScroll 
               key={integration.name}
@@ -142,14 +109,14 @@ export default function IntegrationsSection() {
               <Card 
                 className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:bg-card/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group h-full touch-manipulation"
               >
-              <CardContent className="p-3 sm:p-4 md:p-6 flex flex-col items-center text-center">
-                <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-xl ${integration.color} p-2 sm:p-2.5 md:p-3 mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col items-center text-center">
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl ${integration.color} p-3 sm:p-4 md:p-5 mb-3 sm:mb-4 md:mb-5 group-hover:scale-110 transition-transform duration-300`}>
                   {integration.icon}
                 </div>
-                <h3 className="font-semibold text-foreground mb-0.5 sm:mb-1 text-xs sm:text-sm md:text-base line-clamp-2">
+                <h3 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base md:text-lg line-clamp-2">
                   {integration.name}
                 </h3>
-                <p className="text-muted-foreground text-[10px] sm:text-xs md:text-sm line-clamp-2">
+                <p className="text-muted-foreground text-xs sm:text-sm md:text-base line-clamp-2">
                   {integration.description}
                 </p>
               </CardContent>

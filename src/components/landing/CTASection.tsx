@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export default function CTASection() {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-10 lg:px-16 relative overflow-hidden bg-background">
+    <section id="cta" className="py-24 md:py-32 px-6 md:px-10 lg:px-16 relative overflow-hidden bg-background">
       {/* Flowing gradient mesh - more vibrant for CTA */}
       <div className="absolute inset-0 bg-gradient-to-b from-muted/20 via-background to-muted/30" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_30%,oklch(0.6132_0.2294_291.7437/0.25),transparent)]" />

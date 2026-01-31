@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -23,10 +24,14 @@ const navLinks = [
 ]
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [visible, setVisible] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // On inner pages (e.g. blog), always use solid navbar to prevent content showing through
+  const isSolid = scrolled || pathname !== "/"
 
   useEffect(() => {
     setMounted(true)
@@ -36,7 +41,8 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
     }
-    window.addEventListener("scroll", handleScroll)
+    handleScroll() // set initial state
+    window.addEventListener("scroll", handleScroll, { passive: true })
     
     // Handle smooth scroll with offset for hash links
     const handleHashNavigation = () => {
@@ -69,11 +75,14 @@ export default function Navbar() {
     }
   }, [])
   
-  // Handle click on hash links with offset
+  // Handle click on hash links with offset (including /#hash when on home)
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
+    const hashMatch = href.match(/#(.+)$/)
+    const targetId = hashMatch ? hashMatch[1] : null
+    const isHashOnHome = href.startsWith('/#') && pathname === '/'
+    const isHashLink = href.startsWith('#')
+    if ((isHashLink || isHashOnHome) && targetId) {
       e.preventDefault()
-      const targetId = href.substring(1)
       const targetElement = document.getElementById(targetId)
       if (targetElement) {
         const headerHeight = 80
@@ -82,19 +91,19 @@ export default function Navbar() {
           top: targetPosition,
           behavior: 'smooth'
         })
-        // Update URL without triggering scroll
-        window.history.pushState(null, '', href)
+        window.history.pushState(null, '', isHashLink ? href : `/#${targetId}`)
       }
     }
   }
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 bg-background/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-0 ${
-        scrolled 
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ${
+        isSolid 
           ? "border-b border-border/50 shadow-sm" 
-          : ""
+          : "bg-background/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-0"
       } ${visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
+      style={isSolid ? { backgroundColor: "var(--background)" } : undefined}
     >
       <nav className="w-full px-4 sm:px-6 md:px-10 lg:px-16 py-3 sm:py-4 md:py-4 h-[72px] md:h-auto flex items-center">
         <div className="flex items-center justify-between w-full">
